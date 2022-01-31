@@ -2013,7 +2013,7 @@ pre .javascript .function {
   box-sizing: border-box;
   width: 100%;
   overflow: hidden;
-  background: url("/images/first_screen_gris1.jpeg") center center/cover no-repeat;
+  background: url("/images/bg1.jpeg") center center/cover no-repeat;
   background-position-y: 70px;
 }
 @media (max-width: 780px) {
@@ -2037,7 +2037,7 @@ pre .javascript .function {
   font-size: 2rem;
   line-height: 1.8;
   text-align: center;
-  color: var(--default-text-color);
+  color: var(--fourth-text-color);
 }
 @media (max-width: 780px) {
   .first-screen-container .content .description {
