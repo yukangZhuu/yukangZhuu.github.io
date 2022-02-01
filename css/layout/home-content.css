@@ -1,6 +1,21 @@
 .home-content-container {
   background: var(--background-color);
 }
+.home-content-container .home-article-list .s-icon-list {
+  position: absolute;
+  bottom: 0;
+  font-size: $first-screen-icon-size;
+  text-align: center;
+keep-tablet()
+}
+.home-content-container .home-article-list .s-icon-list .s-icon-item {
+  margin-right: 20px;
+  cursor: pointer;
+  line-height: 2;
+}
+.home-content-container .home-article-list .s-icon-list .s-icon-item:last-child {
+  margin-right: 0;
+}
 .home-content-container .home-article-list .home-article-item {
   position: relative;
 }
