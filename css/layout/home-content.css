@@ -6,7 +6,6 @@
   position: relative;
   top: 0;
   font-size: $first-screen-icon-size;
-  text-align: center;
 keep-tablet()
 }
 .home-content-container .s-icon-list .s-icon-item {

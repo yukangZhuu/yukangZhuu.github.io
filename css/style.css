@@ -2225,7 +2225,6 @@ pre .javascript .function {
   position: relative;
   top: 0;
   font-size: 1.6rem;
-  text-align: center;
 }
 @media (max-width: 780px) {
   .home-content-container .s-icon-list {
