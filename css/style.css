@@ -2221,8 +2221,9 @@ pre .javascript .function {
   background: var(--background-color);
 }
 .home-content-container .s-icon-list {
-  position: absolute;
-  bottom: 0;
+  text-align: center;
+  position: relative;
+  top: 0;
   font-size: 1.6rem;
   text-align: center;
 }
