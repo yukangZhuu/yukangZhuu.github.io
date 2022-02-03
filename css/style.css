@@ -2335,7 +2335,7 @@ pre .javascript .function {
   background: var(--background-color);
 }
 .home-content-container .s-icon-list {
-  position: relative;
+  position: absolute;
   top: 0;
   right: 0;
   font-size: 1.6rem;
