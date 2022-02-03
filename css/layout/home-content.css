@@ -4,24 +4,10 @@
 .home-content-container .my-container1 {
   position: relative;
 }
-.home-content-container .my-container1 .s-icon-list {
-  position: absolute;
-  top: 5px;
-  right: 0;
-  font-size: $first-screen-icon-size;
-keep-tablet()
-}
-.home-content-container .my-container1 .s-icon-list .s-icon-item {
-  margin-right: 20px;
-  cursor: pointer;
-  line-height: 2;
-}
-.home-content-container .my-container1 .s-icon-list .s-icon-item:last-child {
-  margin-right: 0;
-}
 .home-content-container .my-container1 .music-player {
+  text-align: center;
   left: 0;
-  position: absolute;
+  position: relative;
   top: 0;
 }
 .home-content-container .home-article-list .home-article-item {
