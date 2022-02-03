@@ -2,6 +2,7 @@
   background: var(--background-color);
 }
 .home-content-container .s-icon-list {
+  text-align: center;
   position: relative;
   top: 0;
   font-size: $first-screen-icon-size;
@@ -14,6 +15,11 @@ keep-tablet()
 }
 .home-content-container .s-icon-list .s-icon-item:last-child {
   margin-right: 0;
+}
+.home-content-container .music-player {
+  text-align: center;
+  position: relative;
+  top: 0;
 }
 .home-content-container .home-article-list .home-article-item {
   position: relative;
