@@ -2334,6 +2334,9 @@ pre .javascript .function {
 .home-content-container {
   background: var(--background-color);
 }
+.home-content-container .my-container1 {
+  position: relative;
+}
 .home-content-container .s-icon-list {
   position: absolute;
   top: 2px;
