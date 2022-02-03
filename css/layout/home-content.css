@@ -6,7 +6,7 @@
 }
 .home-content-container .my-container1 .s-icon-list {
   position: absolute;
-  top: 2px;
+  top: 5px;
   right: 0;
   font-size: $first-screen-icon-size;
 keep-tablet()
