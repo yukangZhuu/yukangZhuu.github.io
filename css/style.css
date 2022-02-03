@@ -2335,7 +2335,6 @@ pre .javascript .function {
   background: var(--background-color);
 }
 .home-content-container .s-icon-list {
-  text-align: center;
   position: relative;
   top: 0;
   font-size: 1.6rem;
@@ -2354,7 +2353,6 @@ pre .javascript .function {
   margin-right: 0;
 }
 .home-content-container .music-player {
-  text-align: center;
   position: relative;
   top: 0;
 }
