@@ -3,7 +3,7 @@
 }
 .home-content-container .s-icon-list {
   position: absolute;
-  top: 0;
+  top: 2px;
   right: 0;
   font-size: $first-screen-icon-size;
 keep-tablet()
@@ -17,7 +17,8 @@ keep-tablet()
   margin-right: 0;
 }
 .home-content-container .music-player {
-  position: relative;
+  left: 0;
+  position: absolute;
   top: 0;
 }
 .home-content-container .home-article-list .home-article-item {
