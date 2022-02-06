@@ -2422,10 +2422,10 @@ pre .javascript .function {
 }
 .home-content-container {
   background: var(--background-color);
-}
-.home-content-container .music-player {
-  text-align: center;
-  position: relative;
+/*   .music-player{
+    text-align: center;     
+    position: relative;
+  } */
 }
 .home-content-container .home-article-list .home-article-item {
   position: relative;
