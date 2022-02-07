@@ -1,9 +1,5 @@
 .home-content-container {
   background: var(--background-color);
-/*   .music-player{
-    text-align: center;     
-    position: relative;
-  } */
 }
 .home-content-container .home-article-list .home-article-item {
   position: relative;
