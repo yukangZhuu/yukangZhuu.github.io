@@ -252,7 +252,10 @@ const ap = new APlayer({
     }
 });
 //ap.init();
-ap.lrc.show(); 
+ap.lrc.hide();
+ap.on('play', ap.lrc.show());
+ap.on('pause', ap.lrc.hide());
+//ap.on('ended', ap.lrc.hide());
 </script>
 
                 
