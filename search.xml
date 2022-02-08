@@ -30,19 +30,67 @@
       </tags>
   </entry>
   <entry>
-    <title>page</title>
-    <url>/2022/02/07/page-2/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>page</title>
-    <url>/2022/02/07/page-1/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>page</title>
-    <url>/2022/02/07/page/</url>
+    <title>Happy Birthday Mr.Blog | 一篇博客的诞生</title>
+    <url>/2022/02/05/Happy%20Birthday%20Mr.Blog%EF%BC%88%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%A4%8D%E4%BB%B6%EF%BC%89/</url>
     <content><![CDATA[<h2 id="Origin-想法的开端"><a href="#Origin-想法的开端" class="headerlink" title="Origin | 想法的开端"></a>Origin | 想法的开端</h2><p>最初想要建一个博客站的想法，来源于偶然看到了小刘同志的博客（<a class="link"   href="https://lewamlyn.top/" >传送门<i class="fas fa-external-link-alt"></i></a>）。第一次知道了博客站原来可以这么花里胡哨😜，完全不同于CSDN、博客园那种耿直、硬朗、完全为功能服务的风格。于是，当时便在心中埋下了搭一个自己的博客站的想法。</p>
+<h2 id="Progress-着手去做"><a href="#Progress-着手去做" class="headerlink" title="Progress | 着手去做"></a>Progress | 着手去做</h2><p>搭博客站的计划一开始定在大三的寒假，也就是2021年初，但当时因为语言考试和科研任务迟迟没有开工，没想到一拖就到了大四的寒假。由于学校申请的繁杂事务都差不多处理完了，这个本科阶段最后的寒假显得尤为清闲和珍贵，也终于有时间来倒腾倒腾博客了。  </p>
+<p>跟随小刘同志的经验，我选了<a class="link"   href="https://hexo.io/zh-cn/" >Hexo<i class="fas fa-external-link-alt"></i></a>作为博客网站的框架，结合Github的个人仓库，搭建了自己的第一个网站。主要是参考了以下两篇文章，写得非常详细：</p>
+<ul>
+<li><a class="link"   href="https://zhuanlan.zhihu.com/p/26625249" >GitHub+Hexo 搭建个人网站详细教程<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   href="https://blog.csdn.net/sinat_37781304/article/details/82729029" >hexo史上最全搭建教程<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+<p>主题方面，经过一个选择恐惧症患者的挣扎，我选了<a class="link"   href="https://keep-docs.xpoet.cn/" >Keep<i class="fas fa-external-link-alt"></i></a>作为博客的主题。正如所见，Keep是一款简约且优雅的Hexo主题，它放弃了繁琐的配置选项，仅保留了一些能让你专注于写作的设计。Hexo的<a class="link"   href="https://hexo.io/themes/" >官网<i class="fas fa-external-link-alt"></i></a>也提供了超级多的主题可供选择。  </p>
+<p>然而，仅仅循规蹈矩地采用主题提供的资源还是不能满足我👀。如果想达到更灵活的客制化，就不得不去查看主题的源码。借此机会，我也专门补习了下html、css、js的基础知识，在这方面，W3school提供了非常详细的教程，很适合新手入门：</p>
+<ul>
+<li><a class="link"   href="https://www.w3school.com.cn/html/index.asp" >HTML 教程<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   href="https://www.w3school.com.cn/css/index.asp" >CSS 教程<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   href="https://www.w3school.com.cn/js/index.asp" >JavaScript 教程<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+<h2 id="Story-Begins-未完待续"><a href="#Story-Begins-未完待续" class="headerlink" title="Story Begins | 未完待续"></a>Story Begins | 未完待续</h2><p>这个匆匆搭建好的博客，算是给自己一个特别的新年礼物吧。希望在不远的将来，能把陋室逐渐打造成属于自己的小世界吧。也希望在即将到来的研究生阶段，自己能坚持往小世界里填充自己的东西吧。  </p>
+<p>最后，附上自己很喜欢的一句话❤️：  </p>
+<p><strong>“君子深造之以道，欲其自得之也。自得之，则居之安；居之安，则资之深；资之深，则取之左右逢其原。故君子往其自得之也。”</strong>    </p>
+<p>不祝人如意，只望君能自得。</p>
+]]></content>
+      <categories>
+        <category>随记</category>
+      </categories>
+      <tags>
+        <tag>随记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Happy Birthday Mr.Blog | 一篇博客的诞生</title>
+    <url>/2022/02/05/Happy%20Birthday%20Mr.Blog%EF%BC%88%E5%A4%8D%E4%BB%B6%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="Origin-想法的开端"><a href="#Origin-想法的开端" class="headerlink" title="Origin | 想法的开端"></a>Origin | 想法的开端</h2><p>最初想要建一个博客站的想法，来源于偶然看到了小刘同志的博客（<a class="link"   href="https://lewamlyn.top/" >传送门<i class="fas fa-external-link-alt"></i></a>）。第一次知道了博客站原来可以这么花里胡哨😜，完全不同于CSDN、博客园那种耿直、硬朗、完全为功能服务的风格。于是，当时便在心中埋下了搭一个自己的博客站的想法。</p>
+<h2 id="Progress-着手去做"><a href="#Progress-着手去做" class="headerlink" title="Progress | 着手去做"></a>Progress | 着手去做</h2><p>搭博客站的计划一开始定在大三的寒假，也就是2021年初，但当时因为语言考试和科研任务迟迟没有开工，没想到一拖就到了大四的寒假。由于学校申请的繁杂事务都差不多处理完了，这个本科阶段最后的寒假显得尤为清闲和珍贵，也终于有时间来倒腾倒腾博客了。  </p>
+<p>跟随小刘同志的经验，我选了<a class="link"   href="https://hexo.io/zh-cn/" >Hexo<i class="fas fa-external-link-alt"></i></a>作为博客网站的框架，结合Github的个人仓库，搭建了自己的第一个网站。主要是参考了以下两篇文章，写得非常详细：</p>
+<ul>
+<li><a class="link"   href="https://zhuanlan.zhihu.com/p/26625249" >GitHub+Hexo 搭建个人网站详细教程<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   href="https://blog.csdn.net/sinat_37781304/article/details/82729029" >hexo史上最全搭建教程<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+<p>主题方面，经过一个选择恐惧症患者的挣扎，我选了<a class="link"   href="https://keep-docs.xpoet.cn/" >Keep<i class="fas fa-external-link-alt"></i></a>作为博客的主题。正如所见，Keep是一款简约且优雅的Hexo主题，它放弃了繁琐的配置选项，仅保留了一些能让你专注于写作的设计。Hexo的<a class="link"   href="https://hexo.io/themes/" >官网<i class="fas fa-external-link-alt"></i></a>也提供了超级多的主题可供选择。  </p>
+<p>然而，仅仅循规蹈矩地采用主题提供的资源还是不能满足我👀。如果想达到更灵活的客制化，就不得不去查看主题的源码。借此机会，我也专门补习了下html、css、js的基础知识，在这方面，W3school提供了非常详细的教程，很适合新手入门：</p>
+<ul>
+<li><a class="link"   href="https://www.w3school.com.cn/html/index.asp" >HTML 教程<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   href="https://www.w3school.com.cn/css/index.asp" >CSS 教程<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   href="https://www.w3school.com.cn/js/index.asp" >JavaScript 教程<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+<h2 id="Story-Begins-未完待续"><a href="#Story-Begins-未完待续" class="headerlink" title="Story Begins | 未完待续"></a>Story Begins | 未完待续</h2><p>这个匆匆搭建好的博客，算是给自己一个特别的新年礼物吧。希望在不远的将来，能把陋室逐渐打造成属于自己的小世界吧。也希望在即将到来的研究生阶段，自己能坚持往小世界里填充自己的东西吧。  </p>
+<p>最后，附上自己很喜欢的一句话❤️：  </p>
+<p><strong>“君子深造之以道，欲其自得之也。自得之，则居之安；居之安，则资之深；资之深，则取之左右逢其原。故君子往其自得之也。”</strong>    </p>
+<p>不祝人如意，只望君能自得。</p>
+]]></content>
+      <categories>
+        <category>随记</category>
+      </categories>
+      <tags>
+        <tag>随记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>page123</title>
+    <url>/2022/02/07/Happy%20Birthday%20Mr.Blog%EF%BC%88%E5%A4%8D%E4%BB%B6%EF%BC%89%EF%BC%88%E5%A4%8D%E4%BB%B6%EF%BC%89/</url>
+    <content><![CDATA[<p>1231231231232123</p>
 ]]></content>
       <categories>
         <category>随记</category>
