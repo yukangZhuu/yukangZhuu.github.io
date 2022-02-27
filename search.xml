@@ -31,11 +31,6 @@
   </entry>
   <entry>
     <title>copyFunc_220227</title>
-    <url>/2022/02/27/copyFunc_220227/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>copyFunc_220227</title>
     <url>/2022/02/27/posix_220224/</url>
     <content><![CDATA[<h1 id="C-中的拷贝构造函数与深-浅拷贝"><a href="#C-中的拷贝构造函数与深-浅拷贝" class="headerlink" title="C++中的拷贝构造函数与深/浅拷贝"></a>C++中的拷贝构造函数与深/浅拷贝</h1><p>在一个C++空类中，编译器会加入以下默认的成员函数：</p>
 <ul>
@@ -69,5 +64,10 @@
       <tags>
         <tag>C++</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>copyFunc_220227</title>
+    <url>/2022/02/27/copyFunc_220227/</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>
