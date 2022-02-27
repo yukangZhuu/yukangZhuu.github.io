@@ -30,9 +30,9 @@
       </tags>
   </entry>
   <entry>
-    <title>copyFunc_220227</title>
-    <url>/2022/02/27/posix_220224/</url>
-    <content><![CDATA[<h1 id="C-中的拷贝构造函数与深-浅拷贝"><a href="#C-中的拷贝构造函数与深-浅拷贝" class="headerlink" title="C++中的拷贝构造函数与深/浅拷贝"></a>C++中的拷贝构造函数与深/浅拷贝</h1><p>在一个C++空类中，编译器会加入以下默认的成员函数：</p>
+    <title>C++中的拷贝构造函数与深/浅拷贝</title>
+    <url>/2022/02/27/copyFunc_220227/</url>
+    <content><![CDATA[<p>在一个C++空类中，编译器会加入以下默认的成员函数：</p>
 <ul>
 <li>默认构造函数和拷贝构造函数</li>
 <li>析构函数</li>
@@ -66,8 +66,103 @@
       </tags>
   </entry>
   <entry>
-    <title>copyFunc_220227</title>
-    <url>/2022/02/27/copyFunc_220227/</url>
-    <content><![CDATA[]]></content>
+    <title>POSIX标准与其部分C API (一)</title>
+    <url>/2022/02/24/posix_220224/</url>
+    <content><![CDATA[<p>最近在实习过程中，需要查阅部门以前写的Android HAL代码，粗略地看了一下，发现自己竟然对其中用到的很多库完全不熟悉，看来自己的C水平确实也就这样了。  </p>
+<p>好在贴心的mentor提醒说里面很多库来自POSIX，并叫我趁着这个机会去学一学，对以后的工作会大有好处。</p>
+<h2 id="什么是POSIX"><a href="#什么是POSIX" class="headerlink" title="什么是POSIX"></a>什么是POSIX</h2><p>POSIX(Portable Operating System Interface for Computing Systems)是由IEEE 和ISO/IEC 开发的一簇标准。POSIX 标准定义了操作系统应该为应用程序提供的接口标准，是 IEEE 为要在各种 UNIX 操作系统上运行的软件而定义的一系列 API 标准的总称。  </p>
+<p>POSIX库 就是C POSIX library。C POSIX library是C语言的POSIX系统下的标准库。包含了一些在C语言标准库之外的函数。为了OS之间的可移植性，POSIX标准规定了一些标准的接口。而这些接口标准的集合就是POSIX库。</p>
+<p><a class="link"   href="https://pubs.opengroup.org/onlinepubs/9699919799/nframe.html" >官方文档<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="POSIX、libc与glibc"><a href="#POSIX、libc与glibc" class="headerlink" title="POSIX、libc与glibc"></a>POSIX、libc与glibc</h2><ul>
+<li><p>C 标准函数库（C standard library，缩写：libc），C标准函数库共有29个头文件。总而言之，几乎在任何平台上的 C 语言 (包括非 UNIX 平台) 都支持此标准。</p>
+</li>
+<li><p>GNU C库（英语：GNU C Library，常简称为glibc）是一种按照LGPL许可协议发布的，自由的，公开源代码的函数库。<strong>既包含C标准库，也包含POSIX库</strong>。</p>
+</li>
+</ul>
+<h2 id="一些常见的POSIX-C库（一）"><a href="#一些常见的POSIX-C库（一）" class="headerlink" title="一些常见的POSIX C库（一）"></a>一些常见的POSIX C库（一）</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">&lt;pthread.h&gt;  </span><br><span class="line">&lt;poll.h&gt;  </span><br><span class="line">&lt;fcntl.h&gt;</span><br><span class="line">&lt;sys/time.h&gt;  </span><br><span class="line">&lt;unistd.h&gt;  </span><br><span class="line">&lt;sys/eventfd.h&gt;  </span><br><span class="line">&lt;linux/input.h&gt;  </span><br><span class="line">&lt;dirent.h&gt;  </span><br><span class="line">&lt;errno.h&gt;  </span><br></pre></td></tr></table></figure>
+
+<h3 id="pthread-h"><a href="#pthread-h" class="headerlink" title="pthread.h"></a><strong>pthread.h</strong></h3><p>pthread(POSIX thread)，简称为pthread，是线程的POSIX标准，在类Unix操作系统中(Unix、Linux、Mac OS X等)，都是用pthread作为操作系统的线程。</p>
+<ul>
+<li><p><strong>互斥锁</strong></p>
+  <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ptread_mutex_t</span></span><br></pre></td></tr></table></figure>
+
+<p>  posix下抽象了一个锁类型的结构：ptread_mutex_t。通过对该结构的操作，来判断资源是否可以访问。顾名思义，加锁(lock)后，别人就无法打开，只有当锁没有关闭(unlock)的时候才能访问资源。即对象互斥锁的概念，来保证共享数据操作的完整性。</p>
+  <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_mutex_init</span><span class="params">(<span class="keyword">pthread_mutex_t</span> *<span class="keyword">restrict</span> mutex, <span class="keyword">const</span> <span class="keyword">pthread_mutexattr_t</span> *<span class="keyword">restrict</span> attr)</span></span>; <span class="comment">//互斥锁的初始化</span></span><br></pre></td></tr></table></figure>
+<p>  该函数第一个参数为锁对象，第二个为锁的属性，一般为NULL。</p>
+  <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_mutex_lock</span><span class="params">(<span class="keyword">pthread_mutex_t</span> *mutex)</span> <span class="comment">//加锁</span></span></span><br></pre></td></tr></table></figure>
+  <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_mutex_unlock</span><span class="params">(<span class="keyword">pthread_mutex_t</span> *mutex)</span> <span class="comment">//解锁</span></span></span><br></pre></td></tr></table></figure>
+<p>  不论哪种类型的锁，都不可能被两个不同的线程同时得到，而必须等待解锁。</p>
+  <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span>   <span class="title">pthread_mutex_destroy</span><span class="params">(<span class="keyword">pthread_mutex_t</span> *mutex)</span></span>;  <span class="comment">//析构锁</span></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>线程的创建</strong></p>
+  <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span>   <span class="title">pthread_create</span><span class="params">(<span class="keyword">pthread_t</span> *, <span class="keyword">const</span> <span class="keyword">pthread_attr_t</span> *, <span class="keyword">void</span> *(*)(<span class="keyword">void</span> *), <span class="keyword">void</span> *)</span></span>;  <span class="comment">//创建线程函数</span></span><br></pre></td></tr></table></figure>
+<p>  函数共有四个参数，第一个为指向线程标识符的指针，第二个参数用来设置线程属性，第三个参数是线程运行函数的起始地址，第四个参数是运行函数的参数。</p>
+  <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span>   <span class="title">pthread_join</span><span class="params">(<span class="keyword">pthread_t</span>, <span class="keyword">void</span> **)</span></span>;  </span><br></pre></td></tr></table></figure>
+<p>  pthread_join函数会让主线程阻塞，直到所有线程都已经退出，即使主线程等待子线程结束。<br>  一个创建线程的例子如下：</p>
+  <figure class="highlight c"><table><tr><td class="code"><pre><span class="line">pthread_create(&amp;tid, <span class="literal">NULL</span>, class_test, ptr);</span><br><span class="line">pthread_join(tid, <span class="literal">NULL</span>);</span><br></pre></td></tr></table></figure>
+<p>  其他函数：</p>
+  <figure class="highlight c"><table><tr><td class="code"><pre><span class="line">pthread_detach;</span><br><span class="line">pthread_self;</span><br><span class="line">pthread_once;</span><br><span class="line">pthread_cancel;</span><br><span class="line">pthread_kill;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="poll-h"><a href="#poll-h" class="headerlink" title="poll.h"></a><strong>poll.h</strong></h3><p>poll用来在指定时间内论询一定数量的文件描述符，来测试其中是否有就绪的。  </p>
+<ul>
+<li><strong>struct pollfd</strong>  <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">pollfd</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span>   fd;         <span class="comment">/* file descriptor */</span></span><br><span class="line">    <span class="keyword">short</span> events;     <span class="comment">/* requested events */</span></span><br><span class="line">    <span class="keyword">short</span> revents;    <span class="comment">/* returned events */</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+  fd 为文件描述符，events 告诉poll 监听fd 上哪些事件，它是一系列事件按位或。revents 由内核修改，来通知应用程序fd上实际上发生了哪些事件。event和reevent，有一系列事件标识符值，常用的如POLLIN，表示普通或优先级带数据可读。</li>
+<li><strong>poll函数</strong>  <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">poll</span><span class="params">(struct pollfd fds[], <span class="keyword">nfds_t</span> nfds, <span class="keyword">int</span> timeout)</span>；</span></span><br></pre></td></tr></table></figure>
+  nfds 为监听事件集合fds的大小。timeout 为poll的超时时间，单位毫秒。timeout 为-1时，poll永远阻塞，直到有事件发生。timeout为0时，poll立即返回。</li>
+</ul>
+<h3 id="fcntl-h"><a href="#fcntl-h" class="headerlink" title="fcntl.h"></a><strong>fcntl.h</strong></h3><ul>
+<li><p><strong>打开&amp;关闭文件</strong></p>
+  <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">open</span><span class="params">( <span class="keyword">const</span> <span class="keyword">char</span> * pathname, <span class="keyword">int</span> flags)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>  第一个参数为文件路径，第二个参数定义打开文件的权限，如O_RDONLY以只读方式打开文件，O_WRONLY以只写方式打开文件，O_RDWR以读写方式打开文件。<br>  成功则返回文件描述符，否则返回-1。</p>
+  <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">close</span><span class="params">(<span class="keyword">int</span> fd)</span></span>;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>读写文件</strong></p>
+  <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">ssize_t</span> <span class="title">read</span><span class="params">(<span class="keyword">int</span> fd,<span class="keyword">void</span> * buf ,<span class="keyword">size_t</span> count)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>  read()函数把参数fd 所指的文件传送count个字节到buf指针所指的内存中,如果顺利read()会返回实际读到的字节数.</p>
+  <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">ssize_t</span> <span class="title">write</span> <span class="params">(<span class="keyword">int</span> fd,<span class="keyword">const</span> <span class="keyword">void</span> * buf,<span class="keyword">size_t</span> count)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>  write()会把参数buf所指的内存写入count个字节到参数fd所指的文件内,文件读写位置会随写入的字节数移动。</p>
+</li>
+<li><p><strong>其他函数</strong></p>
+  <figure class="highlight c"><table><tr><td class="code"><pre><span class="line">lseek  <span class="comment">//移动文件的读写位置</span></span><br><span class="line">fcntl  <span class="comment">//文件描述词操作</span></span><br><span class="line">creat  <span class="comment">//建立文件</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="sys-time-h"><a href="#sys-time-h" class="headerlink" title="sys/time.h"></a><strong>sys/time.h</strong></h3><h3 id="sys-timefd-h"><a href="#sys-timefd-h" class="headerlink" title="sys/timefd.h"></a><strong>sys/timefd.h</strong></h3><h3 id="sys-eventfd-h"><a href="#sys-eventfd-h" class="headerlink" title="sys/eventfd.h"></a><strong>sys/eventfd.h</strong></h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">pid_t</span> <span class="title">fork</span><span class="params">(<span class="keyword">void</span>)</span></span>;   <span class="comment">//分叉函数</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="unistd-h"><a href="#unistd-h" class="headerlink" title="unistd.h"></a><strong>unistd.h</strong></h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">pid_t</span> <span class="title">fork</span><span class="params">(<span class="keyword">void</span>)</span></span>;   <span class="comment">//分叉函数</span></span><br></pre></td></tr></table></figure>
+<p>fork用于创建一个新进程，称为子进程，它与父进程（即系统调用fork的进程）同时运行。创建新的子进程后，两个进程将执行fork()系统调用之后的下一条指令。    </p>
+<p>很重要的一点是，fork仅仅被调用一次，却能够返回两次。在子进程与父进程中，返回值是不同的，子进程中fork返回0，而在父进程中，fork返回新创建的子进程的进程ID。  </p>
+<p>创建子进程的常用结构：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> ret = fork();  </span><br><span class="line"><span class="keyword">if</span>(ret == <span class="number">0</span>)  </span><br><span class="line">&#123;  </span><br><span class="line">    <span class="comment">//子进程</span></span><br><span class="line">&#125;  </span><br><span class="line"><span class="keyword">else</span>  </span><br><span class="line">&#123;  </span><br><span class="line">    <span class="comment">//父进程</span></span><br><span class="line">&#125;  </span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">```c</span><br><span class="line"><span class="keyword">int</span> pipe(<span class="keyword">int</span> fd[<span class="number">2</span>]);   <span class="comment">//管道函数</span></span><br></pre></td></tr></table></figure>
+<p>在unix系统中，进程间的通信需要内核缓冲区的参与，即写端进程把数据写入缓冲区，然后由读端进程读出数据。内核提供的这种机制称为进程间通信（IPC，InterProcess Communication）</p>
+<p>管道就是一种简单的常用IPC方法。向管道读写数据通过两个文件描述符，一个被指定为读端，另一个是写端。即fd[0]存放管道读端，fd[1]存放写端。  </p>
+<p>管道只能在有血缘关系的进程间使用，所以pipe()经常和fork()一起使用。  </p>
+<p>实例(<a class="link"   href="https://blog.csdn.net/weixin_46211877/article/details/111816312?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-1.pc_relevant_paycolumn_v3&spm=1001.2101.3001.4242.2&utm_relevant_index=3" >原文地址<i class="fas fa-external-link-alt"></i></a>):</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> fd[<span class="number">2</span>];</span><br><span class="line">	<span class="keyword">int</span> ret = pipe(fd);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">pid_t</span> pid = fork();</span><br><span class="line">	<span class="keyword">if</span>(pid&lt;<span class="number">0</span>) </span><br><span class="line">	&#123;</span><br><span class="line">		perror(<span class="string">&quot;fork error&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(pid&gt;<span class="number">0</span>)  <span class="comment">//父进程</span></span><br><span class="line">	&#123;</span><br><span class="line">        <span class="comment">//写端</span></span><br><span class="line">		write(fd[<span class="number">1</span>], <span class="string">&quot;hello world&quot;</span>, <span class="built_in">strlen</span>(<span class="string">&quot;hello world&quot;</span>));	</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span>            <span class="comment">//子进程</span></span><br><span class="line">	&#123;</span><br><span class="line">        <span class="comment">//读端</span></span><br><span class="line">		<span class="keyword">char</span> buf[<span class="number">64</span>];</span><br><span class="line">		<span class="built_in">memset</span>(buf, <span class="number">0x00</span>, <span class="keyword">sizeof</span>(buf));</span><br><span class="line">		<span class="keyword">int</span> n = read(fd[<span class="number">0</span>], buf, <span class="keyword">sizeof</span>(buf));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Sleep</span><span class="params">(<span class="keyword">int</span> time)</span></span>;   <span class="comment">//休眠函数</span></span><br></pre></td></tr></table></figure>
+<p>强制系统/进程挂起，time的单位在linux中为s。</p>
+<h3 id="sys-eventfd-h-1"><a href="#sys-eventfd-h-1" class="headerlink" title="sys/eventfd.h"></a><strong>sys/eventfd.h</strong></h3><p>eventfd是一个轻量级的进程间通信的系统调用，eventfd通过一个进程间共享的64位计数器完成进程间通信，创建了eventfd对象后，便可以用read与write函数进行。  </p>
+<p>根据上面我们在pipe函数中提到的IPC原理，可以知道，这个计数器的值其实由内核空间维护。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">eventfd</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">int</span> initval, <span class="keyword">int</span> flags)</span></span>;  <span class="comment">//函数原型</span></span><br><span class="line"></span><br><span class="line">fd1 = eventfd(<span class="number">0</span>, <span class="number">0</span>);  <span class="comment">//一般情况下，初始值和flag都为0即可</span></span><br></pre></td></tr></table></figure>
+
+<p>读写举例：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">fd1 = eventfd(<span class="number">0</span>, <span class="number">0</span>); </span><br><span class="line"></span><br><span class="line"><span class="comment">//进程1：写</span></span><br><span class="line"><span class="keyword">int</span> ret;</span><br><span class="line"><span class="keyword">int64_t</span> event_signal = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">ret = write(fd1, &amp;event_signal, <span class="keyword">sizeof</span>(event_signal));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//进程2：读</span></span><br><span class="line"><span class="keyword">int</span> ret;</span><br><span class="line"><span class="keyword">int64_t</span> event_signal;</span><br><span class="line"></span><br><span class="line">ret = read(fd1, &amp;event_signal, <span class="keyword">sizeof</span>(event_signal));</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="dirent-h"><a href="#dirent-h" class="headerlink" title="dirent.h"></a><strong>dirent.h</strong></h3><p>此部分代码参考自：<a class="link"   href="https://blog.csdn.net/dream_allday/article/details/75243818" >原文链接<i class="fas fa-external-link-alt"></i></a> </p>
+<p>LINUX下历遍目录的方法一般是这样的：打开目录-&gt;读取-&gt;关闭目录<br>相关函数是：opendir -&gt; readdir -&gt; closedir</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function">DIR *<span class="title">opendir</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *dirname)</span></span>;</span><br><span class="line"><span class="function">struct dirent *<span class="title">readdir</span><span class="params">(DIR *dirp)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">closedir</span><span class="params">(DIR *dirp)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>注意，在posix中有另外一种read函数的形式：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">readdir_r</span><span class="params">(DIR *dirp, struct dirent *entry, struct dirent **result)</span></span>;  <span class="comment">//把返回结果放到了entry中</span></span><br></pre></td></tr></table></figure>
+<p>使用实例：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">dp = opendir(argv[<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (filename = readdir(dp))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;filename:%-10s\td_info:%ld\t d_reclen:%us\n&quot;</span>,</span><br><span class="line">    filename-&gt;d_name,filename-&gt;d_ino,filename-&gt;d_reclen);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">closedir(dp);</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="linux-input-h"><a href="#linux-input-h" class="headerlink" title="linux/input.h"></a><strong>linux/input.h</strong></h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">input_event</span> &#123;</span></span><br><span class="line">         <span class="class"><span class="keyword">struct</span> <span class="title">timeval</span> <span class="title">time</span>;</span></span><br><span class="line">        __u16 type;</span><br><span class="line">        __u16 code;</span><br><span class="line">        __s32 value;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="errno-h"><a href="#errno-h" class="headerlink" title="errno.h"></a><strong>errno.h</strong></h3><p>errno.h 头文件定义了整数变量 errno，它是通过系统调用设置的，在错误事件中的某些库函数表明了什么发生了错误。通常配合strerror()函数使用。<br>实例：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">FILE *fp;</span><br><span class="line"></span><br><span class="line">fp = fopen(<span class="string">&quot;file.txt&quot;</span>,<span class="string">&quot;r&quot;</span>);</span><br><span class="line"><span class="keyword">if</span>( fp == <span class="literal">NULL</span> ) </span><br><span class="line">&#123;</span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">&quot;Error: %s\n&quot;</span>, strerror(errno));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//输出：Error: No such file or directory</span></span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>C++</tag>
+      </tags>
   </entry>
 </search>

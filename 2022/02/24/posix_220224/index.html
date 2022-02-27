@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="yukang">
+    
+    <title>
+        
+            POSIX标准与其部分C API (一) |
+        
+        Yukang&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo2.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"yukangzhu.github.io","root":"/","language":"en","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/logo2.svg","favicon":"/images/logo2.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg1.jpeg","description":"Find your voice."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Yukang&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                HOME
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                ABOUT
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                CATEGORIES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                LINKS
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">ABOUT</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">CATEGORIES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">LINKS</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">POSIX标准与其部分C API (一)</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/logo2.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">yukang</span>
+                        
+                            <span class="author-label">摸鱼星人</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-02-24 12:46:07</span>
+        <span class="mobile">2022-02-24 12:46</span>
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/C/">C++</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>2.1k Words</span>
+        </span>
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <p>最近在实习过程中，需要查阅部门以前写的Android HAL代码，粗略地看了一下，发现自己竟然对其中用到的很多库完全不熟悉，看来自己的C水平确实也就这样了。  </p>
+<p>好在贴心的mentor提醒说里面很多库来自POSIX，并叫我趁着这个机会去学一学，对以后的工作会大有好处。</p>
+<h2 id="什么是POSIX"><a href="#什么是POSIX" class="headerlink" title="什么是POSIX"></a>什么是POSIX</h2><p>POSIX(Portable Operating System Interface for Computing Systems)是由IEEE 和ISO/IEC 开发的一簇标准。POSIX 标准定义了操作系统应该为应用程序提供的接口标准，是 IEEE 为要在各种 UNIX 操作系统上运行的软件而定义的一系列 API 标准的总称。  </p>
+<p>POSIX库 就是C POSIX library。C POSIX library是C语言的POSIX系统下的标准库。包含了一些在C语言标准库之外的函数。为了OS之间的可移植性，POSIX标准规定了一些标准的接口。而这些接口标准的集合就是POSIX库。</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://pubs.opengroup.org/onlinepubs/9699919799/nframe.html" >官方文档<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="POSIX、libc与glibc"><a href="#POSIX、libc与glibc" class="headerlink" title="POSIX、libc与glibc"></a>POSIX、libc与glibc</h2><ul>
+<li><p>C 标准函数库（C standard library，缩写：libc），C标准函数库共有29个头文件。总而言之，几乎在任何平台上的 C 语言 (包括非 UNIX 平台) 都支持此标准。</p>
+</li>
+<li><p>GNU C库（英语：GNU C Library，常简称为glibc）是一种按照LGPL许可协议发布的，自由的，公开源代码的函数库。<strong>既包含C标准库，也包含POSIX库</strong>。</p>
+</li>
+</ul>
+<h2 id="一些常见的POSIX-C库（一）"><a href="#一些常见的POSIX-C库（一）" class="headerlink" title="一些常见的POSIX C库（一）"></a>一些常见的POSIX C库（一）</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;pthread.h&gt;  </span><br><span class="line">&lt;poll.h&gt;  </span><br><span class="line">&lt;fcntl.h&gt;</span><br><span class="line">&lt;sys/time.h&gt;  </span><br><span class="line">&lt;unistd.h&gt;  </span><br><span class="line">&lt;sys/eventfd.h&gt;  </span><br><span class="line">&lt;linux/input.h&gt;  </span><br><span class="line">&lt;dirent.h&gt;  </span><br><span class="line">&lt;errno.h&gt;  </span><br></pre></td></tr></table></figure>
+
+<h3 id="pthread-h"><a href="#pthread-h" class="headerlink" title="pthread.h"></a><strong>pthread.h</strong></h3><p>pthread(POSIX thread)，简称为pthread，是线程的POSIX标准，在类Unix操作系统中(Unix、Linux、Mac OS X等)，都是用pthread作为操作系统的线程。</p>
+<ul>
+<li><p><strong>互斥锁</strong></p>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ptread_mutex_t</span></span><br></pre></td></tr></table></figure>
+
+<p>  posix下抽象了一个锁类型的结构：ptread_mutex_t。通过对该结构的操作，来判断资源是否可以访问。顾名思义，加锁(lock)后，别人就无法打开，只有当锁没有关闭(unlock)的时候才能访问资源。即对象互斥锁的概念，来保证共享数据操作的完整性。</p>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_mutex_init</span><span class="params">(<span class="keyword">pthread_mutex_t</span> *<span class="keyword">restrict</span> mutex, <span class="keyword">const</span> <span class="keyword">pthread_mutexattr_t</span> *<span class="keyword">restrict</span> attr)</span></span>; <span class="comment">//互斥锁的初始化</span></span><br></pre></td></tr></table></figure>
+<p>  该函数第一个参数为锁对象，第二个为锁的属性，一般为NULL。</p>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_mutex_lock</span><span class="params">(<span class="keyword">pthread_mutex_t</span> *mutex)</span> <span class="comment">//加锁</span></span></span><br></pre></td></tr></table></figure>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_mutex_unlock</span><span class="params">(<span class="keyword">pthread_mutex_t</span> *mutex)</span> <span class="comment">//解锁</span></span></span><br></pre></td></tr></table></figure>
+<p>  不论哪种类型的锁，都不可能被两个不同的线程同时得到，而必须等待解锁。</p>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span>   <span class="title">pthread_mutex_destroy</span><span class="params">(<span class="keyword">pthread_mutex_t</span> *mutex)</span></span>;  <span class="comment">//析构锁</span></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>线程的创建</strong></p>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span>   <span class="title">pthread_create</span><span class="params">(<span class="keyword">pthread_t</span> *, <span class="keyword">const</span> <span class="keyword">pthread_attr_t</span> *, <span class="keyword">void</span> *(*)(<span class="keyword">void</span> *), <span class="keyword">void</span> *)</span></span>;  <span class="comment">//创建线程函数</span></span><br></pre></td></tr></table></figure>
+<p>  函数共有四个参数，第一个为指向线程标识符的指针，第二个参数用来设置线程属性，第三个参数是线程运行函数的起始地址，第四个参数是运行函数的参数。</p>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span>   <span class="title">pthread_join</span><span class="params">(<span class="keyword">pthread_t</span>, <span class="keyword">void</span> **)</span></span>;  </span><br></pre></td></tr></table></figure>
+<p>  pthread_join函数会让主线程阻塞，直到所有线程都已经退出，即使主线程等待子线程结束。<br>  一个创建线程的例子如下：</p>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pthread_create(&amp;tid, <span class="literal">NULL</span>, class_test, ptr);</span><br><span class="line">pthread_join(tid, <span class="literal">NULL</span>);</span><br></pre></td></tr></table></figure>
+<p>  其他函数：</p>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pthread_detach;</span><br><span class="line">pthread_self;</span><br><span class="line">pthread_once;</span><br><span class="line">pthread_cancel;</span><br><span class="line">pthread_kill;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="poll-h"><a href="#poll-h" class="headerlink" title="poll.h"></a><strong>poll.h</strong></h3><p>poll用来在指定时间内论询一定数量的文件描述符，来测试其中是否有就绪的。  </p>
+<ul>
+<li><strong>struct pollfd</strong>  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">pollfd</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span>   fd;         <span class="comment">/* file descriptor */</span></span><br><span class="line">    <span class="keyword">short</span> events;     <span class="comment">/* requested events */</span></span><br><span class="line">    <span class="keyword">short</span> revents;    <span class="comment">/* returned events */</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+  fd 为文件描述符，events 告诉poll 监听fd 上哪些事件，它是一系列事件按位或。revents 由内核修改，来通知应用程序fd上实际上发生了哪些事件。event和reevent，有一系列事件标识符值，常用的如POLLIN，表示普通或优先级带数据可读。</li>
+<li><strong>poll函数</strong>  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">poll</span><span class="params">(struct pollfd fds[], <span class="keyword">nfds_t</span> nfds, <span class="keyword">int</span> timeout)</span>；</span></span><br></pre></td></tr></table></figure>
+  nfds 为监听事件集合fds的大小。timeout 为poll的超时时间，单位毫秒。timeout 为-1时，poll永远阻塞，直到有事件发生。timeout为0时，poll立即返回。</li>
+</ul>
+<h3 id="fcntl-h"><a href="#fcntl-h" class="headerlink" title="fcntl.h"></a><strong>fcntl.h</strong></h3><ul>
+<li><p><strong>打开&amp;关闭文件</strong></p>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">open</span><span class="params">( <span class="keyword">const</span> <span class="keyword">char</span> * pathname, <span class="keyword">int</span> flags)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>  第一个参数为文件路径，第二个参数定义打开文件的权限，如O_RDONLY以只读方式打开文件，O_WRONLY以只写方式打开文件，O_RDWR以读写方式打开文件。<br>  成功则返回文件描述符，否则返回-1。</p>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">close</span><span class="params">(<span class="keyword">int</span> fd)</span></span>;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>读写文件</strong></p>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">ssize_t</span> <span class="title">read</span><span class="params">(<span class="keyword">int</span> fd,<span class="keyword">void</span> * buf ,<span class="keyword">size_t</span> count)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>  read()函数把参数fd 所指的文件传送count个字节到buf指针所指的内存中,如果顺利read()会返回实际读到的字节数.</p>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">ssize_t</span> <span class="title">write</span> <span class="params">(<span class="keyword">int</span> fd,<span class="keyword">const</span> <span class="keyword">void</span> * buf,<span class="keyword">size_t</span> count)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>  write()会把参数buf所指的内存写入count个字节到参数fd所指的文件内,文件读写位置会随写入的字节数移动。</p>
+</li>
+<li><p><strong>其他函数</strong></p>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">lseek  <span class="comment">//移动文件的读写位置</span></span><br><span class="line">fcntl  <span class="comment">//文件描述词操作</span></span><br><span class="line">creat  <span class="comment">//建立文件</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="sys-time-h"><a href="#sys-time-h" class="headerlink" title="sys/time.h"></a><strong>sys/time.h</strong></h3><h3 id="sys-timefd-h"><a href="#sys-timefd-h" class="headerlink" title="sys/timefd.h"></a><strong>sys/timefd.h</strong></h3><h3 id="sys-eventfd-h"><a href="#sys-eventfd-h" class="headerlink" title="sys/eventfd.h"></a><strong>sys/eventfd.h</strong></h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">pid_t</span> <span class="title">fork</span><span class="params">(<span class="keyword">void</span>)</span></span>;   <span class="comment">//分叉函数</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="unistd-h"><a href="#unistd-h" class="headerlink" title="unistd.h"></a><strong>unistd.h</strong></h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">pid_t</span> <span class="title">fork</span><span class="params">(<span class="keyword">void</span>)</span></span>;   <span class="comment">//分叉函数</span></span><br></pre></td></tr></table></figure>
+<p>fork用于创建一个新进程，称为子进程，它与父进程（即系统调用fork的进程）同时运行。创建新的子进程后，两个进程将执行fork()系统调用之后的下一条指令。    </p>
+<p>很重要的一点是，fork仅仅被调用一次，却能够返回两次。在子进程与父进程中，返回值是不同的，子进程中fork返回0，而在父进程中，fork返回新创建的子进程的进程ID。  </p>
+<p>创建子进程的常用结构：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> ret = fork();  </span><br><span class="line"><span class="keyword">if</span>(ret == <span class="number">0</span>)  </span><br><span class="line">&#123;  </span><br><span class="line">    <span class="comment">//子进程</span></span><br><span class="line">&#125;  </span><br><span class="line"><span class="keyword">else</span>  </span><br><span class="line">&#123;  </span><br><span class="line">    <span class="comment">//父进程</span></span><br><span class="line">&#125;  </span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">```c</span><br><span class="line"><span class="keyword">int</span> pipe(<span class="keyword">int</span> fd[<span class="number">2</span>]);   <span class="comment">//管道函数</span></span><br></pre></td></tr></table></figure>
+<p>在unix系统中，进程间的通信需要内核缓冲区的参与，即写端进程把数据写入缓冲区，然后由读端进程读出数据。内核提供的这种机制称为进程间通信（IPC，InterProcess Communication）</p>
+<p>管道就是一种简单的常用IPC方法。向管道读写数据通过两个文件描述符，一个被指定为读端，另一个是写端。即fd[0]存放管道读端，fd[1]存放写端。  </p>
+<p>管道只能在有血缘关系的进程间使用，所以pipe()经常和fork()一起使用。  </p>
+<p>实例(<a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_46211877/article/details/111816312?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-1.pc_relevant_paycolumn_v3&spm=1001.2101.3001.4242.2&utm_relevant_index=3" >原文地址<i class="fas fa-external-link-alt"></i></a>):</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> fd[<span class="number">2</span>];</span><br><span class="line">	<span class="keyword">int</span> ret = pipe(fd);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">pid_t</span> pid = fork();</span><br><span class="line">	<span class="keyword">if</span>(pid&lt;<span class="number">0</span>) </span><br><span class="line">	&#123;</span><br><span class="line">		perror(<span class="string">&quot;fork error&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(pid&gt;<span class="number">0</span>)  <span class="comment">//父进程</span></span><br><span class="line">	&#123;</span><br><span class="line">        <span class="comment">//写端</span></span><br><span class="line">		write(fd[<span class="number">1</span>], <span class="string">&quot;hello world&quot;</span>, <span class="built_in">strlen</span>(<span class="string">&quot;hello world&quot;</span>));	</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span>            <span class="comment">//子进程</span></span><br><span class="line">	&#123;</span><br><span class="line">        <span class="comment">//读端</span></span><br><span class="line">		<span class="keyword">char</span> buf[<span class="number">64</span>];</span><br><span class="line">		<span class="built_in">memset</span>(buf, <span class="number">0x00</span>, <span class="keyword">sizeof</span>(buf));</span><br><span class="line">		<span class="keyword">int</span> n = read(fd[<span class="number">0</span>], buf, <span class="keyword">sizeof</span>(buf));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Sleep</span><span class="params">(<span class="keyword">int</span> time)</span></span>;   <span class="comment">//休眠函数</span></span><br></pre></td></tr></table></figure>
+<p>强制系统/进程挂起，time的单位在linux中为s。</p>
+<h3 id="sys-eventfd-h-1"><a href="#sys-eventfd-h-1" class="headerlink" title="sys/eventfd.h"></a><strong>sys/eventfd.h</strong></h3><p>eventfd是一个轻量级的进程间通信的系统调用，eventfd通过一个进程间共享的64位计数器完成进程间通信，创建了eventfd对象后，便可以用read与write函数进行。  </p>
+<p>根据上面我们在pipe函数中提到的IPC原理，可以知道，这个计数器的值其实由内核空间维护。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">eventfd</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">int</span> initval, <span class="keyword">int</span> flags)</span></span>;  <span class="comment">//函数原型</span></span><br><span class="line"></span><br><span class="line">fd1 = eventfd(<span class="number">0</span>, <span class="number">0</span>);  <span class="comment">//一般情况下，初始值和flag都为0即可</span></span><br></pre></td></tr></table></figure>
+
+<p>读写举例：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">fd1 = eventfd(<span class="number">0</span>, <span class="number">0</span>); </span><br><span class="line"></span><br><span class="line"><span class="comment">//进程1：写</span></span><br><span class="line"><span class="keyword">int</span> ret;</span><br><span class="line"><span class="keyword">int64_t</span> event_signal = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">ret = write(fd1, &amp;event_signal, <span class="keyword">sizeof</span>(event_signal));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//进程2：读</span></span><br><span class="line"><span class="keyword">int</span> ret;</span><br><span class="line"><span class="keyword">int64_t</span> event_signal;</span><br><span class="line"></span><br><span class="line">ret = read(fd1, &amp;event_signal, <span class="keyword">sizeof</span>(event_signal));</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="dirent-h"><a href="#dirent-h" class="headerlink" title="dirent.h"></a><strong>dirent.h</strong></h3><p>此部分代码参考自：<a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/dream_allday/article/details/75243818" >原文链接<i class="fas fa-external-link-alt"></i></a> </p>
+<p>LINUX下历遍目录的方法一般是这样的：打开目录-&gt;读取-&gt;关闭目录<br>相关函数是：opendir -&gt; readdir -&gt; closedir</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">DIR *<span class="title">opendir</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *dirname)</span></span>;</span><br><span class="line"><span class="function">struct dirent *<span class="title">readdir</span><span class="params">(DIR *dirp)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">closedir</span><span class="params">(DIR *dirp)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>注意，在posix中有另外一种read函数的形式：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">readdir_r</span><span class="params">(DIR *dirp, struct dirent *entry, struct dirent **result)</span></span>;  <span class="comment">//把返回结果放到了entry中</span></span><br></pre></td></tr></table></figure>
+<p>使用实例：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">dp = opendir(argv[<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (filename = readdir(dp))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;filename:%-10s\td_info:%ld\t d_reclen:%us\n&quot;</span>,</span><br><span class="line">    filename-&gt;d_name,filename-&gt;d_ino,filename-&gt;d_reclen);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">closedir(dp);</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="linux-input-h"><a href="#linux-input-h" class="headerlink" title="linux/input.h"></a><strong>linux/input.h</strong></h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">input_event</span> &#123;</span></span><br><span class="line">         <span class="class"><span class="keyword">struct</span> <span class="title">timeval</span> <span class="title">time</span>;</span></span><br><span class="line">        __u16 type;</span><br><span class="line">        __u16 code;</span><br><span class="line">        __s32 value;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="errno-h"><a href="#errno-h" class="headerlink" title="errno.h"></a><strong>errno.h</strong></h3><p>errno.h 头文件定义了整数变量 errno，它是通过系统调用设置的，在错误事件中的某些库函数表明了什么发生了错误。通常配合strerror()函数使用。<br>实例：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">FILE *fp;</span><br><span class="line"></span><br><span class="line">fp = fopen(<span class="string">&quot;file.txt&quot;</span>,<span class="string">&quot;r&quot;</span>);</span><br><span class="line"><span class="keyword">if</span>( fp == <span class="literal">NULL</span> ) </span><br><span class="line">&#123;</span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">&quot;Error: %s\n&quot;</span>, strerror(errno));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//输出：Error: No such file or directory</span></span><br></pre></td></tr></table></figure>
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>Post title：POSIX标准与其部分C API (一)</li>
+        <li>Post author：yukang</li>
+        <li>Create time：2022-02-24 12:46:07</li>
+        <li>
+            Post link：https://yukangzhu.github.io/2022/02/24/posix_220224/
+        </li>
+        <li>
+            Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/C/">#C++</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/02/27/copyFunc_220227/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">C++中的拷贝构造函数与深/浅拷贝</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/02/05/Happy%20Birthday%20Mr.Blog/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Happy Birthday Mr.Blog | 一篇博客的诞生</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;Comments</i>
+    </div>
+    
+
+        
+            
+    <div class="valine-container">
+        <script 
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+        <div id="vcomments"></div>
+        <script >
+            function loadValine() {
+                new Valine({
+                    el: '#vcomments',
+                    appId: 'yW8pGDubUSzTOGYUJHGzGF6T-gzGzoHsz',
+                    appKey: 'Gt5W7qFmzykbsirnSuOlKWkP',
+                    meta: ['nick', 'mail', 'link'],
+                    avatar: 'wavatar',
+                    enableQQ: true,
+                    placeholder: 'Welcome~',
+                    lang: 'en'.toLowerCase()
+                });
+
+                function getAuthor(language) {
+                    switch (language) {
+                        case 'en':
+                            return 'Author';
+                        case 'zh-CN':
+                            return '博主';
+                        default:
+                            return 'Master';
+                    }
+                }
+
+                // Add "Author" identify
+                const getValineDomTimer = setInterval(() => {
+                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
+                    if (vcards.length > 0) {
+                        let author = 'yukang';
+
+                        if (author) {
+                            for (let vcard of vcards) {
+                                const vnick_dom = vcard.querySelector('.vhead .vnick');
+                                const vnick = vnick_dom.innerHTML;
+                                if (vnick === author) {
+                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
+                                }
+                            }
+                        }
+                        clearInterval(getValineDomTimer);
+                    } else {
+                        clearInterval(getValineDomTimer);
+                    }
+                }, 2000);
+            }
+
+            if ('false') {
+                const loadValineTimeout = setTimeout(() => {
+                    loadValine();
+                    clearTimeout(loadValineTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadValine);
+            }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+
+        
+        
+            <div id="s-icon-list">
+                
+                    
+                        
+                            <span class="s-icon-item github">
+                                <a target="_blank" href="https://github.com/yukangZhu">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </span>
+                        
+                    
+                
+                    
+                        
+                            <span class="s-icon-item weixin">
+                                <a target="_blank" href="https://u.wechat.com/EIZhYmPxdy9elKil7eTMey0">
+                                    <i class="fab fa-weixin"></i>
+                                </a>
+                            </span>
+                        
+                    
+                
+                    
+                        
+                            <span class="s-icon-item email">
+                                <a href="mailto:z961392940@163.com">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </span>
+                        
+                    
+                
+            </div>
+        
+
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">yukang</a>
+        </div>
+        
+
+            
+            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        Visitor Count&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        Totalview&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+
+    <br />
+    <br />
+
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFPOSIX"><span class="nav-number">1.</span> <span class="nav-text">什么是POSIX</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#POSIX%E3%80%81libc%E4%B8%8Eglibc"><span class="nav-number">2.</span> <span class="nav-text">POSIX、libc与glibc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E5%B8%B8%E8%A7%81%E7%9A%84POSIX-C%E5%BA%93%EF%BC%88%E4%B8%80%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">一些常见的POSIX C库（一）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pthread-h"><span class="nav-number">3.1.</span> <span class="nav-text">pthread.h</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#poll-h"><span class="nav-number">3.2.</span> <span class="nav-text">poll.h</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fcntl-h"><span class="nav-number">3.3.</span> <span class="nav-text">fcntl.h</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sys-time-h"><span class="nav-number">3.4.</span> <span class="nav-text">sys&#x2F;time.h</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sys-timefd-h"><span class="nav-number">3.5.</span> <span class="nav-text">sys&#x2F;timefd.h</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sys-eventfd-h"><span class="nav-number">3.6.</span> <span class="nav-text">sys&#x2F;eventfd.h</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unistd-h"><span class="nav-number">3.7.</span> <span class="nav-text">unistd.h</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sys-eventfd-h-1"><span class="nav-number">3.8.</span> <span class="nav-text">sys&#x2F;eventfd.h</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dirent-h"><span class="nav-number">3.9.</span> <span class="nav-text">dirent.h</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linux-input-h"><span class="nav-number">3.10.</span> <span class="nav-text">linux&#x2F;input.h</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#errno-h"><span class="nav-number">3.11.</span> <span class="nav-text">errno.h</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<canvas class="fireworks" style="position: fixed; left: 0; top: 0; z-index: 99999999; pointer-events: none;"></canvas>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+<script src="/js/aixin.js"></script>
+
+<script src="/js/mouse.min.js"></script>
+
+<script src="/js/fireworks.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+
+</body>
+</html>
