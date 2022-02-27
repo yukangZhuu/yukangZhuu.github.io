@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="yukang">
+    
+    <title>
+        
+            copyFunc_220227 |
+        
+        Yukang&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo2.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"yukangzhu.github.io","root":"/","language":"en","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/logo2.svg","favicon":"/images/logo2.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg1.jpeg","description":"Find your voice."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Yukang&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                HOME
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                ABOUT
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                CATEGORIES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                LINKS
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">ABOUT</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">CATEGORIES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">LINKS</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">copyFunc_220227</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/logo2.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">yukang</span>
+                        
+                            <span class="author-label">摸鱼星人</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-02-27 12:46:07</span>
+        <span class="mobile">2022-02-27 12:46</span>
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/C/">C++</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.1k Words</span>
+        </span>
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="C-中的拷贝构造函数与深-浅拷贝"><a href="#C-中的拷贝构造函数与深-浅拷贝" class="headerlink" title="C++中的拷贝构造函数与深/浅拷贝"></a>C++中的拷贝构造函数与深/浅拷贝</h1><p>在一个C++空类中，编译器会加入以下默认的成员函数：</p>
+<ul>
+<li>默认构造函数和拷贝构造函数</li>
+<li>析构函数</li>
+<li>默认的赋值函数（赋值运算符）</li>
+<li>取值函数 </li>
+</ul>
+<h2 id="拷贝构造函数与赋值函数"><a href="#拷贝构造函数与赋值函数" class="headerlink" title="拷贝构造函数与赋值函数"></a>拷贝构造函数与赋值函数</h2><p><strong>构造函数</strong>可以被重载，可以有多个，<strong>也可以带参数</strong>。而默认构造函数没有参数，它什么也不做。</p>
+<h3 id="拷贝构造函数"><a href="#拷贝构造函数" class="headerlink" title="拷贝构造函数"></a><strong>拷贝构造函数</strong></h3><p><strong>拷贝构造函数</strong>（或复制构造函数）是一种特殊的构造函数，用基于同一类的一个对象构造和初始化另一个对象。当没有重载拷贝构造函数时，就会调用默认拷贝构造函数。  </p>
+<p>注意，以上两种函数的不同点在于，默认的构造函数啥也不做，而默认的拷贝构造函数使用“老对象”的数据成员的值对“新对象”的数据成员一一进行赋值。</p>
+<p>例如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> m_i;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">A</span>(<span class="keyword">int</span> i):<span class="built_in">m_i</span>(i) &#123;&#125; <span class="comment">//构造函数的重载实现,初始化列表</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">A a;        <span class="comment">//调用默认构造函数</span></span><br><span class="line"><span class="function">A <span class="title">a</span><span class="params">(<span class="number">1</span>)</span></span>;     <span class="comment">//调用重载的构造函数</span></span><br><span class="line"><span class="function">A <span class="title">b</span><span class="params">(a)</span></span>;     <span class="comment">//调用默认拷贝构造函数</span></span><br><span class="line">A b = a;    <span class="comment">//与b(a)等价</span></span><br></pre></td></tr></table></figure>
+<p>构造函数与拷贝构造函数的重载形式如下例：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span>&#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">char</span> *m=name;</span><br><span class="line">    <span class="keyword">int</span> m_age;</span><br><span class="line">    <span class="keyword">float</span> m_score;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Student</span>(<span class="keyword">char</span> *name, <span class="keyword">int</span> age, <span class="keyword">float</span> score);  <span class="comment">//重载构造函数</span></span><br><span class="line">    <span class="built_in">Student</span>(<span class="keyword">const</span> Student &amp; student);           <span class="comment">//重载拷贝构造函数</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//构造函数</span></span><br><span class="line">Student::<span class="built_in">Student</span>(<span class="keyword">char</span> *name, <span class="keyword">int</span> age, <span class="keyword">float</span> score): <span class="built_in">m_name</span>(name), <span class="built_in">m_age</span>(age), <span class="built_in">m_score</span>(score)&#123;&#125;                     <span class="comment">//使用初始化列表</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//拷贝构造函数</span></span><br><span class="line">Student::<span class="built_in">Student</span>(<span class="keyword">const</span> Student &amp;student)</span><br><span class="line">&#123;</span><br><span class="line">    m_age = student.m_age;</span><br><span class="line">    m_score = student.m_score;</span><br><span class="line"></span><br><span class="line">    m_name = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="built_in">strlen</span>(student.m_name) + <span class="number">1</span>];  <span class="comment">//开空间</span></span><br><span class="line">    <span class="built_in">strcpy</span>(m_name, student.m_name);                 <span class="comment">//拷数据</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//ps.为什么这里的拷贝构造函数不能使用初始化列表呢？（例如m_name(student.m_name)）这就涉及到深拷贝和浅拷贝的问题了，详见后文的解析。</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="赋值函数"><a href="#赋值函数" class="headerlink" title="赋值函数"></a><strong>赋值函数</strong></h3><p>另外，需要注意拷贝构造函数与重载<strong>赋值函数</strong>（赋值运算符）的区别:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">A a;            <span class="comment">//默认构造函数</span></span><br><span class="line"><span class="function">A <span class="title">b</span><span class="params">(a)</span></span>;         <span class="comment">//拷贝构造函数</span></span><br><span class="line">A c = a;        <span class="comment">//拷贝构造函数</span></span><br><span class="line">A d;</span><br><span class="line">d = a;          <span class="comment">//赋值函数,因为d已经存在。</span></span><br></pre></td></tr></table></figure>
+<p>如果没有重载赋值函数，则会调用默认赋值函数来进行赋值，默认的赋值函数与默认的拷贝构造函数一样，使用“=”后边的数据成员的值对被赋值的数据成员一一进行赋值。  </p>
+<p>赋值运算的重载声明如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">A&amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> A&amp; other);</span><br><span class="line"></span><br><span class="line"><span class="comment">//实现例</span></span><br><span class="line">Student::Student&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> Student&amp; s)  <span class="comment">//必须要返回引用，为了连续的赋值</span></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    m_age = student.m_age;</span><br><span class="line">    m_source = student.m_source;    </span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span> != &amp;s)          <span class="comment">// 防止出现  student = student 的情况误释放空间</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">delete</span>[] m_name;</span><br><span class="line">        m_name = <span class="literal">NULL</span>;</span><br><span class="line">        m_name = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="built_in">strlen</span>(s.m_name) + <span class="number">1</span>];</span><br><span class="line">        <span class="built_in">strcpy</span>(m_name, s.m_name);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="深拷贝与浅拷贝"><a href="#深拷贝与浅拷贝" class="headerlink" title="深拷贝与浅拷贝"></a>深拷贝与浅拷贝</h2><p>经过上面的讨论，我们知道，默认的拷贝重载函数和赋值函数会对对象的数据成员<strong>一一赋值</strong>，这实际上就是<strong>浅拷贝</strong>。</p>
+<h3 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a><strong>浅拷贝</strong></h3><p>浅拷贝指的是在对象复制时，只对对象中的数据成员进行简单的赋值。很多时候，浅拷贝已经能够完成我们的任务。但是，当类存在动态成员时，浅拷贝就会出现问题。例如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">B</span>()&#123; p = <span class="keyword">new</span> <span class="built_in"><span class="keyword">int</span></span>(<span class="number">100</span>); &#125;</span><br><span class="line">    ~<span class="built_in">B</span>()</span><br><span class="line">    &#123; </span><br><span class="line">        <span class="keyword">if</span>(p != <span class="literal">NULL</span>) <span class="keyword">delete</span> p;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> *p;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    B a;</span><br><span class="line">    <span class="function">B <span class="title">b</span><span class="params">(a)</span></span>;   <span class="comment">//默认拷贝构造函数</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>在这个例子中，类中存在指针类型的变量，而这时默认拷贝函数的简单赋值会导致a和b两个对象的数据成员（指针）指向了同一地址。所以在程序结束时，会导致指针指向的空间释放两次，从而使程序崩溃。  </p>
+<h3 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a><strong>深拷贝</strong></h3><p>在“深拷贝”的情况下，对于对象中动态成员，就不能仅仅简单地赋值了，而应该重新动态分配空间。指针类型的深拷贝会让两个指针各自指向一段内存空间，但它们指向的空间具有相同的内容，从而在释放指针时各不影响。具体实例可以参考上节中拷贝构造函数和赋值函数重载的实现。  </p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><p>浅拷贝会把指针变量的地址复制; 深拷贝会重新开辟内存空间。</p>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>Post title：copyFunc_220227</li>
+        <li>Post author：yukang</li>
+        <li>Create time：2022-02-27 12:46:07</li>
+        <li>
+            Post link：https://yukangzhu.github.io/2022/02/27/posix_220224/
+        </li>
+        <li>
+            Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/C/">#C++</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/02/27/copyFunc_220227/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">copyFunc_220227</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/02/05/Happy%20Birthday%20Mr.Blog/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Happy Birthday Mr.Blog | 一篇博客的诞生</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;Comments</i>
+    </div>
+    
+
+        
+            
+    <div class="valine-container">
+        <script 
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+        <div id="vcomments"></div>
+        <script >
+            function loadValine() {
+                new Valine({
+                    el: '#vcomments',
+                    appId: 'yW8pGDubUSzTOGYUJHGzGF6T-gzGzoHsz',
+                    appKey: 'Gt5W7qFmzykbsirnSuOlKWkP',
+                    meta: ['nick', 'mail', 'link'],
+                    avatar: 'wavatar',
+                    enableQQ: true,
+                    placeholder: 'Welcome~',
+                    lang: 'en'.toLowerCase()
+                });
+
+                function getAuthor(language) {
+                    switch (language) {
+                        case 'en':
+                            return 'Author';
+                        case 'zh-CN':
+                            return '博主';
+                        default:
+                            return 'Master';
+                    }
+                }
+
+                // Add "Author" identify
+                const getValineDomTimer = setInterval(() => {
+                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
+                    if (vcards.length > 0) {
+                        let author = 'yukang';
+
+                        if (author) {
+                            for (let vcard of vcards) {
+                                const vnick_dom = vcard.querySelector('.vhead .vnick');
+                                const vnick = vnick_dom.innerHTML;
+                                if (vnick === author) {
+                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
+                                }
+                            }
+                        }
+                        clearInterval(getValineDomTimer);
+                    } else {
+                        clearInterval(getValineDomTimer);
+                    }
+                }, 2000);
+            }
+
+            if ('false') {
+                const loadValineTimeout = setTimeout(() => {
+                    loadValine();
+                    clearTimeout(loadValineTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadValine);
+            }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+
+        
+        
+            <div id="s-icon-list">
+                
+                    
+                        
+                            <span class="s-icon-item github">
+                                <a target="_blank" href="https://github.com/yukangZhu">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </span>
+                        
+                    
+                
+                    
+                        
+                            <span class="s-icon-item weixin">
+                                <a target="_blank" href="https://u.wechat.com/EIZhYmPxdy9elKil7eTMey0">
+                                    <i class="fab fa-weixin"></i>
+                                </a>
+                            </span>
+                        
+                    
+                
+                    
+                        
+                            <span class="s-icon-item email">
+                                <a href="mailto:z961392940@163.com">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </span>
+                        
+                    
+                
+            </div>
+        
+
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">yukang</a>
+        </div>
+        
+
+            
+            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        Visitor Count&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        Totalview&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+
+    <br />
+    <br />
+
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#C-%E4%B8%AD%E7%9A%84%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E4%B8%8E%E6%B7%B1-%E6%B5%85%E6%8B%B7%E8%B4%9D"><span class="nav-number">1.</span> <span class="nav-text">C++中的拷贝构造函数与深&#x2F;浅拷贝</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E4%B8%8E%E8%B5%8B%E5%80%BC%E5%87%BD%E6%95%B0"><span class="nav-number">1.1.</span> <span class="nav-text">拷贝构造函数与赋值函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-number">1.1.1.</span> <span class="nav-text">拷贝构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B5%8B%E5%80%BC%E5%87%BD%E6%95%B0"><span class="nav-number">1.1.2.</span> <span class="nav-text">赋值函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%B1%E6%8B%B7%E8%B4%9D%E4%B8%8E%E6%B5%85%E6%8B%B7%E8%B4%9D"><span class="nav-number">1.2.</span> <span class="nav-text">深拷贝与浅拷贝</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%85%E6%8B%B7%E8%B4%9D"><span class="nav-number">1.2.1.</span> <span class="nav-text">浅拷贝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="nav-number">1.2.2.</span> <span class="nav-text">深拷贝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.2.3.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<canvas class="fireworks" style="position: fixed; left: 0; top: 0; z-index: 99999999; pointer-events: none;"></canvas>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+<script src="/js/aixin.js"></script>
+
+<script src="/js/mouse.min.js"></script>
+
+<script src="/js/fireworks.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+
+</body>
+</html>
