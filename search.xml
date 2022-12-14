@@ -1,32 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Happy Birthday Mr.Blog | 一篇博客的诞生</title>
-    <url>/2022/02/05/Happy%20Birthday%20Mr.Blog/</url>
-    <content><![CDATA[<h2 id="Origin-想法的开端"><a href="#Origin-想法的开端" class="headerlink" title="Origin | 想法的开端"></a>Origin | 想法的开端</h2><p>最初想要建一个博客站的想法，来源于偶然看到了小刘同志的博客（<a class="link"   href="https://lewamlyn.top/" >传送门<i class="fas fa-external-link-alt"></i></a>）。第一次知道了博客站原来可以这么花里胡哨😜，完全不同于CSDN、博客园那种耿直、硬朗、完全为功能服务的风格。于是，当时便在心中埋下了搭一个自己的博客站的想法。</p>
-<h2 id="Progress-着手去做"><a href="#Progress-着手去做" class="headerlink" title="Progress | 着手去做"></a>Progress | 着手去做</h2><p>搭博客站的计划一开始定在大三的寒假，也就是2021年初，但当时因为语言考试和科研任务迟迟没有开工，没想到一拖就到了大四的寒假。由于学校申请的繁杂事务都差不多处理完了，这个本科阶段最后的寒假显得尤为清闲和珍贵，也终于有时间来倒腾倒腾博客了。  </p>
-<p>跟随小刘同志的经验，我选了<a class="link"   href="https://hexo.io/zh-cn/" >Hexo<i class="fas fa-external-link-alt"></i></a>作为博客网站的框架，结合Github的个人仓库，搭建了自己的第一个网站。主要是参考了以下两篇文章，写得非常详细：</p>
+    <title>C++中的拷贝构造函数与深/浅拷贝</title>
+    <url>/2022/02/27/copyFunc_220227/</url>
+    <content><![CDATA[<p>在一个C++空类中，编译器会加入以下默认的成员函数：</p>
 <ul>
-<li><a class="link"   href="https://zhuanlan.zhihu.com/p/26625249" >GitHub+Hexo 搭建个人网站详细教程<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   href="https://blog.csdn.net/sinat_37781304/article/details/82729029" >hexo史上最全搭建教程<i class="fas fa-external-link-alt"></i></a></li>
+<li>默认构造函数和拷贝构造函数</li>
+<li>析构函数</li>
+<li>默认的赋值函数（赋值运算符）</li>
+<li>取值函数 </li>
 </ul>
-<p>主题方面，经过一个选择恐惧症患者的挣扎，我选了<a class="link"   href="https://keep-docs.xpoet.cn/" >Keep<i class="fas fa-external-link-alt"></i></a>作为博客的主题。正如所见，Keep是一款简约且优雅的Hexo主题，它放弃了繁琐的配置选项，仅保留了一些能让你专注于写作的设计。Hexo的<a class="link"   href="https://hexo.io/themes/" >官网<i class="fas fa-external-link-alt"></i></a>也提供了超级多的主题可供选择。  </p>
-<p>然而，仅仅循规蹈矩地采用主题提供的资源还是不能满足我👀。如果想达到更灵活的客制化，就不得不去查看主题的源码。借此机会，我也专门补习了下html、css、js的基础知识，在这方面，W3school提供了非常详细的教程，很适合新手入门：</p>
-<ul>
-<li><a class="link"   href="https://www.w3school.com.cn/html/index.asp" >HTML 教程<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   href="https://www.w3school.com.cn/css/index.asp" >CSS 教程<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   href="https://www.w3school.com.cn/js/index.asp" >JavaScript 教程<i class="fas fa-external-link-alt"></i></a></li>
-</ul>
-<h2 id="Story-Begins-未完待续"><a href="#Story-Begins-未完待续" class="headerlink" title="Story Begins | 未完待续"></a>Story Begins | 未完待续</h2><p>这个匆匆搭建好的博客，算是给自己一个特别的新年礼物吧。希望在不远的将来，能把陋室逐渐打造成属于自己的小世界吧。也希望在即将到来的研究生阶段，自己能坚持往小世界里填充自己的东西吧。  </p>
-<p>最后，附上自己很喜欢的一句话❤️：  </p>
-<p><strong>“君子深造之以道，欲其自得之也。自得之，则居之安；居之安，则资之深；资之深，则取之左右逢其原。故君子往其自得之也。”</strong>    </p>
-<p>不祝人如意，只望君能自得。</p>
+<h2 id="拷贝构造函数与赋值函数"><a href="#拷贝构造函数与赋值函数" class="headerlink" title="拷贝构造函数与赋值函数"></a>拷贝构造函数与赋值函数</h2><p><strong>构造函数</strong>可以被重载，可以有多个，<strong>也可以带参数</strong>。而默认构造函数没有参数，它什么也不做。</p>
+<h3 id="拷贝构造函数"><a href="#拷贝构造函数" class="headerlink" title="拷贝构造函数"></a><strong>拷贝构造函数</strong></h3><p><strong>拷贝构造函数</strong>（或复制构造函数）是一种特殊的构造函数，用基于同一类的一个对象构造和初始化另一个对象。当没有重载拷贝构造函数时，就会调用默认拷贝构造函数。  </p>
+<p>注意，以上两种函数的不同点在于，默认的构造函数啥也不做，而默认的拷贝构造函数使用“老对象”的数据成员的值对“新对象”的数据成员一一进行赋值。</p>
+<p>例如：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> m_i;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">A</span>(<span class="keyword">int</span> i):<span class="built_in">m_i</span>(i) &#123;&#125; <span class="comment">//构造函数的重载实现,初始化列表</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">A a;        <span class="comment">//调用默认构造函数</span></span><br><span class="line"><span class="function">A <span class="title">a</span><span class="params">(<span class="number">1</span>)</span></span>;     <span class="comment">//调用重载的构造函数</span></span><br><span class="line"><span class="function">A <span class="title">b</span><span class="params">(a)</span></span>;     <span class="comment">//调用默认拷贝构造函数</span></span><br><span class="line">A b = a;    <span class="comment">//与b(a)等价</span></span><br></pre></td></tr></table></figure>
+<p>构造函数与拷贝构造函数的重载形式如下例：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span>&#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">char</span> *m=name;</span><br><span class="line">    <span class="keyword">int</span> m_age;</span><br><span class="line">    <span class="keyword">float</span> m_score;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Student</span>(<span class="keyword">char</span> *name, <span class="keyword">int</span> age, <span class="keyword">float</span> score);  <span class="comment">//重载构造函数</span></span><br><span class="line">    <span class="built_in">Student</span>(<span class="keyword">const</span> Student &amp; student);           <span class="comment">//重载拷贝构造函数</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//构造函数</span></span><br><span class="line">Student::<span class="built_in">Student</span>(<span class="keyword">char</span> *name, <span class="keyword">int</span> age, <span class="keyword">float</span> score): <span class="built_in">m_name</span>(name), <span class="built_in">m_age</span>(age), <span class="built_in">m_score</span>(score)&#123;&#125;                     <span class="comment">//使用初始化列表</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//拷贝构造函数</span></span><br><span class="line">Student::<span class="built_in">Student</span>(<span class="keyword">const</span> Student &amp;student)</span><br><span class="line">&#123;</span><br><span class="line">    m_age = student.m_age;</span><br><span class="line">    m_score = student.m_score;</span><br><span class="line"></span><br><span class="line">    m_name = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="built_in">strlen</span>(student.m_name) + <span class="number">1</span>];  <span class="comment">//开空间</span></span><br><span class="line">    <span class="built_in">strcpy</span>(m_name, student.m_name);                 <span class="comment">//拷数据</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//ps.为什么这里的拷贝构造函数不能使用初始化列表呢？（例如m_name(student.m_name)）这就涉及到深拷贝和浅拷贝的问题了，详见后文的解析。</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="赋值函数"><a href="#赋值函数" class="headerlink" title="赋值函数"></a><strong>赋值函数</strong></h3><p>另外，需要注意拷贝构造函数与重载<strong>赋值函数</strong>（赋值运算符）的区别:</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">A a;            <span class="comment">//默认构造函数</span></span><br><span class="line"><span class="function">A <span class="title">b</span><span class="params">(a)</span></span>;         <span class="comment">//拷贝构造函数</span></span><br><span class="line">A c = a;        <span class="comment">//拷贝构造函数</span></span><br><span class="line">A d;</span><br><span class="line">d = a;          <span class="comment">//赋值函数,因为d已经存在。</span></span><br></pre></td></tr></table></figure>
+<p>如果没有重载赋值函数，则会调用默认赋值函数来进行赋值，默认的赋值函数与默认的拷贝构造函数一样，使用“=”后边的数据成员的值对被赋值的数据成员一一进行赋值。  </p>
+<p>赋值运算的重载声明如下：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">A&amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> A&amp; other);</span><br><span class="line"></span><br><span class="line"><span class="comment">//实现例</span></span><br><span class="line">Student::Student&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> Student&amp; s)  <span class="comment">//必须要返回引用，为了连续的赋值</span></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    m_age = student.m_age;</span><br><span class="line">    m_source = student.m_source;    </span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span> != &amp;s)          <span class="comment">// 防止出现  student = student 的情况误释放空间</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">delete</span>[] m_name;</span><br><span class="line">        m_name = <span class="literal">NULL</span>;</span><br><span class="line">        m_name = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="built_in">strlen</span>(s.m_name) + <span class="number">1</span>];</span><br><span class="line">        <span class="built_in">strcpy</span>(m_name, s.m_name);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="深拷贝与浅拷贝"><a href="#深拷贝与浅拷贝" class="headerlink" title="深拷贝与浅拷贝"></a>深拷贝与浅拷贝</h2><p>经过上面的讨论，我们知道，默认的拷贝重载函数和赋值函数会对对象的数据成员<strong>一一赋值</strong>，这实际上就是<strong>浅拷贝</strong>。</p>
+<h3 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a><strong>浅拷贝</strong></h3><p>浅拷贝指的是在对象复制时，只对对象中的数据成员进行简单的赋值。很多时候，浅拷贝已经能够完成我们的任务。但是，当类存在动态成员时，浅拷贝就会出现问题。例如：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">B</span>()&#123; p = <span class="keyword">new</span> <span class="built_in"><span class="keyword">int</span></span>(<span class="number">100</span>); &#125;</span><br><span class="line">    ~<span class="built_in">B</span>()</span><br><span class="line">    &#123; </span><br><span class="line">        <span class="keyword">if</span>(p != <span class="literal">NULL</span>) <span class="keyword">delete</span> p;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> *p;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    B a;</span><br><span class="line">    <span class="function">B <span class="title">b</span><span class="params">(a)</span></span>;   <span class="comment">//默认拷贝构造函数</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>在这个例子中，类中存在指针类型的变量，而这时默认拷贝函数的简单赋值会导致a和b两个对象的数据成员（指针）指向了同一地址。所以在程序结束时，会导致指针指向的空间释放两次，从而使程序崩溃。  </p>
+<h3 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a><strong>深拷贝</strong></h3><p>在“深拷贝”的情况下，对于对象中动态成员，就不能仅仅简单地赋值了，而应该重新动态分配空间。指针类型的深拷贝会让两个指针各自指向一段内存空间，但它们指向的空间具有相同的内容，从而在释放指针时各不影响。具体实例可以参考上节中拷贝构造函数和赋值函数重载的实现。  </p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><p>浅拷贝会把指针变量的地址复制; 深拷贝会重新开辟内存空间。</p>
 ]]></content>
-      <categories>
-        <category>随记</category>
-      </categories>
       <tags>
-        <tag>随记</tag>
+        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
@@ -130,39 +137,32 @@
       </tags>
   </entry>
   <entry>
-    <title>C++中的拷贝构造函数与深/浅拷贝</title>
-    <url>/2022/02/27/copyFunc_220227/</url>
-    <content><![CDATA[<p>在一个C++空类中，编译器会加入以下默认的成员函数：</p>
+    <title>Happy Birthday Mr.Blog | 一篇博客的诞生</title>
+    <url>/2022/02/05/Happy%20Birthday%20Mr.Blog/</url>
+    <content><![CDATA[<h2 id="Origin-想法的开端"><a href="#Origin-想法的开端" class="headerlink" title="Origin | 想法的开端"></a>Origin | 想法的开端</h2><p>最初想要建一个博客站的想法，来源于偶然看到了小刘同志的博客（<a class="link"   href="https://lewamlyn.top/" >传送门<i class="fas fa-external-link-alt"></i></a>）。第一次知道了博客站原来可以这么花里胡哨😜，完全不同于CSDN、博客园那种耿直、硬朗、完全为功能服务的风格。于是，当时便在心中埋下了搭一个自己的博客站的想法。</p>
+<h2 id="Progress-着手去做"><a href="#Progress-着手去做" class="headerlink" title="Progress | 着手去做"></a>Progress | 着手去做</h2><p>搭博客站的计划一开始定在大三的寒假，也就是2021年初，但当时因为语言考试和科研任务迟迟没有开工，没想到一拖就到了大四的寒假。由于学校申请的繁杂事务都差不多处理完了，这个本科阶段最后的寒假显得尤为清闲和珍贵，也终于有时间来倒腾倒腾博客了。  </p>
+<p>跟随小刘同志的经验，我选了<a class="link"   href="https://hexo.io/zh-cn/" >Hexo<i class="fas fa-external-link-alt"></i></a>作为博客网站的框架，结合Github的个人仓库，搭建了自己的第一个网站。主要是参考了以下两篇文章，写得非常详细：</p>
 <ul>
-<li>默认构造函数和拷贝构造函数</li>
-<li>析构函数</li>
-<li>默认的赋值函数（赋值运算符）</li>
-<li>取值函数 </li>
+<li><a class="link"   href="https://zhuanlan.zhihu.com/p/26625249" >GitHub+Hexo 搭建个人网站详细教程<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   href="https://blog.csdn.net/sinat_37781304/article/details/82729029" >hexo史上最全搭建教程<i class="fas fa-external-link-alt"></i></a></li>
 </ul>
-<h2 id="拷贝构造函数与赋值函数"><a href="#拷贝构造函数与赋值函数" class="headerlink" title="拷贝构造函数与赋值函数"></a>拷贝构造函数与赋值函数</h2><p><strong>构造函数</strong>可以被重载，可以有多个，<strong>也可以带参数</strong>。而默认构造函数没有参数，它什么也不做。</p>
-<h3 id="拷贝构造函数"><a href="#拷贝构造函数" class="headerlink" title="拷贝构造函数"></a><strong>拷贝构造函数</strong></h3><p><strong>拷贝构造函数</strong>（或复制构造函数）是一种特殊的构造函数，用基于同一类的一个对象构造和初始化另一个对象。当没有重载拷贝构造函数时，就会调用默认拷贝构造函数。  </p>
-<p>注意，以上两种函数的不同点在于，默认的构造函数啥也不做，而默认的拷贝构造函数使用“老对象”的数据成员的值对“新对象”的数据成员一一进行赋值。</p>
-<p>例如：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> m_i;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">A</span>(<span class="keyword">int</span> i):<span class="built_in">m_i</span>(i) &#123;&#125; <span class="comment">//构造函数的重载实现,初始化列表</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">A a;        <span class="comment">//调用默认构造函数</span></span><br><span class="line"><span class="function">A <span class="title">a</span><span class="params">(<span class="number">1</span>)</span></span>;     <span class="comment">//调用重载的构造函数</span></span><br><span class="line"><span class="function">A <span class="title">b</span><span class="params">(a)</span></span>;     <span class="comment">//调用默认拷贝构造函数</span></span><br><span class="line">A b = a;    <span class="comment">//与b(a)等价</span></span><br></pre></td></tr></table></figure>
-<p>构造函数与拷贝构造函数的重载形式如下例：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span>&#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">char</span> *m=name;</span><br><span class="line">    <span class="keyword">int</span> m_age;</span><br><span class="line">    <span class="keyword">float</span> m_score;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Student</span>(<span class="keyword">char</span> *name, <span class="keyword">int</span> age, <span class="keyword">float</span> score);  <span class="comment">//重载构造函数</span></span><br><span class="line">    <span class="built_in">Student</span>(<span class="keyword">const</span> Student &amp; student);           <span class="comment">//重载拷贝构造函数</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//构造函数</span></span><br><span class="line">Student::<span class="built_in">Student</span>(<span class="keyword">char</span> *name, <span class="keyword">int</span> age, <span class="keyword">float</span> score): <span class="built_in">m_name</span>(name), <span class="built_in">m_age</span>(age), <span class="built_in">m_score</span>(score)&#123;&#125;                     <span class="comment">//使用初始化列表</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//拷贝构造函数</span></span><br><span class="line">Student::<span class="built_in">Student</span>(<span class="keyword">const</span> Student &amp;student)</span><br><span class="line">&#123;</span><br><span class="line">    m_age = student.m_age;</span><br><span class="line">    m_score = student.m_score;</span><br><span class="line"></span><br><span class="line">    m_name = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="built_in">strlen</span>(student.m_name) + <span class="number">1</span>];  <span class="comment">//开空间</span></span><br><span class="line">    <span class="built_in">strcpy</span>(m_name, student.m_name);                 <span class="comment">//拷数据</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//ps.为什么这里的拷贝构造函数不能使用初始化列表呢？（例如m_name(student.m_name)）这就涉及到深拷贝和浅拷贝的问题了，详见后文的解析。</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="赋值函数"><a href="#赋值函数" class="headerlink" title="赋值函数"></a><strong>赋值函数</strong></h3><p>另外，需要注意拷贝构造函数与重载<strong>赋值函数</strong>（赋值运算符）的区别:</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">A a;            <span class="comment">//默认构造函数</span></span><br><span class="line"><span class="function">A <span class="title">b</span><span class="params">(a)</span></span>;         <span class="comment">//拷贝构造函数</span></span><br><span class="line">A c = a;        <span class="comment">//拷贝构造函数</span></span><br><span class="line">A d;</span><br><span class="line">d = a;          <span class="comment">//赋值函数,因为d已经存在。</span></span><br></pre></td></tr></table></figure>
-<p>如果没有重载赋值函数，则会调用默认赋值函数来进行赋值，默认的赋值函数与默认的拷贝构造函数一样，使用“=”后边的数据成员的值对被赋值的数据成员一一进行赋值。  </p>
-<p>赋值运算的重载声明如下：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">A&amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> A&amp; other);</span><br><span class="line"></span><br><span class="line"><span class="comment">//实现例</span></span><br><span class="line">Student::Student&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> Student&amp; s)  <span class="comment">//必须要返回引用，为了连续的赋值</span></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    m_age = student.m_age;</span><br><span class="line">    m_source = student.m_source;    </span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span> != &amp;s)          <span class="comment">// 防止出现  student = student 的情况误释放空间</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">delete</span>[] m_name;</span><br><span class="line">        m_name = <span class="literal">NULL</span>;</span><br><span class="line">        m_name = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="built_in">strlen</span>(s.m_name) + <span class="number">1</span>];</span><br><span class="line">        <span class="built_in">strcpy</span>(m_name, s.m_name);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="深拷贝与浅拷贝"><a href="#深拷贝与浅拷贝" class="headerlink" title="深拷贝与浅拷贝"></a>深拷贝与浅拷贝</h2><p>经过上面的讨论，我们知道，默认的拷贝重载函数和赋值函数会对对象的数据成员<strong>一一赋值</strong>，这实际上就是<strong>浅拷贝</strong>。</p>
-<h3 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a><strong>浅拷贝</strong></h3><p>浅拷贝指的是在对象复制时，只对对象中的数据成员进行简单的赋值。很多时候，浅拷贝已经能够完成我们的任务。但是，当类存在动态成员时，浅拷贝就会出现问题。例如：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">B</span>()&#123; p = <span class="keyword">new</span> <span class="built_in"><span class="keyword">int</span></span>(<span class="number">100</span>); &#125;</span><br><span class="line">    ~<span class="built_in">B</span>()</span><br><span class="line">    &#123; </span><br><span class="line">        <span class="keyword">if</span>(p != <span class="literal">NULL</span>) <span class="keyword">delete</span> p;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> *p;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    B a;</span><br><span class="line">    <span class="function">B <span class="title">b</span><span class="params">(a)</span></span>;   <span class="comment">//默认拷贝构造函数</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>在这个例子中，类中存在指针类型的变量，而这时默认拷贝函数的简单赋值会导致a和b两个对象的数据成员（指针）指向了同一地址。所以在程序结束时，会导致指针指向的空间释放两次，从而使程序崩溃。  </p>
-<h3 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a><strong>深拷贝</strong></h3><p>在“深拷贝”的情况下，对于对象中动态成员，就不能仅仅简单地赋值了，而应该重新动态分配空间。指针类型的深拷贝会让两个指针各自指向一段内存空间，但它们指向的空间具有相同的内容，从而在释放指针时各不影响。具体实例可以参考上节中拷贝构造函数和赋值函数重载的实现。  </p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><p>浅拷贝会把指针变量的地址复制; 深拷贝会重新开辟内存空间。</p>
+<p>主题方面，经过一个选择恐惧症患者的挣扎，我选了<a class="link"   href="https://keep-docs.xpoet.cn/" >Keep<i class="fas fa-external-link-alt"></i></a>作为博客的主题。正如所见，Keep是一款简约且优雅的Hexo主题，它放弃了繁琐的配置选项，仅保留了一些能让你专注于写作的设计。Hexo的<a class="link"   href="https://hexo.io/themes/" >官网<i class="fas fa-external-link-alt"></i></a>也提供了超级多的主题可供选择。  </p>
+<p>然而，仅仅循规蹈矩地采用主题提供的资源还是不能满足我👀。如果想达到更灵活的客制化，就不得不去查看主题的源码。借此机会，我也专门补习了下html、css、js的基础知识，在这方面，W3school提供了非常详细的教程，很适合新手入门：</p>
+<ul>
+<li><a class="link"   href="https://www.w3school.com.cn/html/index.asp" >HTML 教程<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   href="https://www.w3school.com.cn/css/index.asp" >CSS 教程<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   href="https://www.w3school.com.cn/js/index.asp" >JavaScript 教程<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+<h2 id="Story-Begins-未完待续"><a href="#Story-Begins-未完待续" class="headerlink" title="Story Begins | 未完待续"></a>Story Begins | 未完待续</h2><p>这个匆匆搭建好的博客，算是给自己一个特别的新年礼物吧。希望在不远的将来，能把陋室逐渐打造成属于自己的小世界吧。也希望在即将到来的研究生阶段，自己能坚持往小世界里填充自己的东西吧。  </p>
+<p>最后，附上自己很喜欢的一句话❤️：  </p>
+<p><strong>“君子深造之以道，欲其自得之也。自得之，则居之安；居之安，则资之深；资之深，则取之左右逢其原。故君子往其自得之也。”</strong>    </p>
+<p>不祝人如意，只望君能自得。</p>
 ]]></content>
+      <categories>
+        <category>随记</category>
+      </categories>
       <tags>
-        <tag>C++</tag>
+        <tag>随记</tag>
       </tags>
   </entry>
 </search>
