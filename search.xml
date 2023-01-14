@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Happy Birthday Mr.Blog | 一篇博客的诞生</title>
+    <url>/2022/02/05/Happy%20Birthday%20Mr.Blog/</url>
+    <content><![CDATA[<h2 id="Origin-想法的开端"><a href="#Origin-想法的开端" class="headerlink" title="Origin | 想法的开端"></a>Origin | 想法的开端</h2><p>最初想要建一个博客站的想法，来源于偶然看到了小刘同志的博客（<a class="link"   href="https://lewamlyn.top/" >传送门<i class="fas fa-external-link-alt"></i></a>）。第一次知道了博客站原来可以这么花里胡哨😜，完全不同于CSDN、博客园那种耿直、硬朗、完全为功能服务的风格。于是，当时便在心中埋下了搭一个自己的博客站的想法。</p>
+<h2 id="Progress-着手去做"><a href="#Progress-着手去做" class="headerlink" title="Progress | 着手去做"></a>Progress | 着手去做</h2><p>搭博客站的计划一开始定在大三的寒假，也就是2021年初，但当时因为语言考试和科研任务迟迟没有开工，没想到一拖就到了大四的寒假。由于学校申请的繁杂事务都差不多处理完了，这个本科阶段最后的寒假显得尤为清闲和珍贵，也终于有时间来倒腾倒腾博客了。  </p>
+<p>跟随小刘同志的经验，我选了<a class="link"   href="https://hexo.io/zh-cn/" >Hexo<i class="fas fa-external-link-alt"></i></a>作为博客网站的框架，结合Github的个人仓库，搭建了自己的第一个网站。主要是参考了以下两篇文章，写得非常详细：</p>
+<ul>
+<li><a class="link"   href="https://zhuanlan.zhihu.com/p/26625249" >GitHub+Hexo 搭建个人网站详细教程<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   href="https://blog.csdn.net/sinat_37781304/article/details/82729029" >hexo史上最全搭建教程<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+<p>主题方面，经过一个选择恐惧症患者的挣扎，我选了<a class="link"   href="https://keep-docs.xpoet.cn/" >Keep<i class="fas fa-external-link-alt"></i></a>作为博客的主题。正如所见，Keep是一款简约且优雅的Hexo主题，它放弃了繁琐的配置选项，仅保留了一些能让你专注于写作的设计。Hexo的<a class="link"   href="https://hexo.io/themes/" >官网<i class="fas fa-external-link-alt"></i></a>也提供了超级多的主题可供选择。  </p>
+<p>然而，仅仅循规蹈矩地采用主题提供的资源还是不能满足我👀。如果想达到更灵活的客制化，就不得不去查看主题的源码。借此机会，我也专门补习了下html、css、js的基础知识，在这方面，W3school提供了非常详细的教程，很适合新手入门：</p>
+<ul>
+<li><a class="link"   href="https://www.w3school.com.cn/html/index.asp" >HTML 教程<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   href="https://www.w3school.com.cn/css/index.asp" >CSS 教程<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   href="https://www.w3school.com.cn/js/index.asp" >JavaScript 教程<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+<h2 id="Story-Begins-未完待续"><a href="#Story-Begins-未完待续" class="headerlink" title="Story Begins | 未完待续"></a>Story Begins | 未完待续</h2><p>这个匆匆搭建好的博客，算是给自己一个特别的新年礼物吧。希望在不远的将来，能把陋室逐渐打造成属于自己的小世界吧。也希望在即将到来的研究生阶段，自己能坚持往小世界里填充自己的东西吧。  </p>
+<p>最后，附上自己很喜欢的一句话❤️：  </p>
+<p><strong>“君子深造之以道，欲其自得之也。自得之，则居之安；居之安，则资之深；资之深，则取之左右逢其原。故君子往其自得之也。”</strong>    </p>
+<p>不祝人如意，只望君能自得。</p>
+]]></content>
+      <categories>
+        <category>随记</category>
+      </categories>
+      <tags>
+        <tag>随记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C++中的拷贝构造函数与深/浅拷贝</title>
     <url>/2022/02/27/copyFunc_220227/</url>
     <content><![CDATA[<p>在一个C++空类中，编译器会加入以下默认的成员函数：</p>
@@ -137,26 +166,28 @@
       </tags>
   </entry>
   <entry>
-    <title>Happy Birthday Mr.Blog | 一篇博客的诞生</title>
-    <url>/2022/02/05/Happy%20Birthday%20Mr.Blog/</url>
-    <content><![CDATA[<h2 id="Origin-想法的开端"><a href="#Origin-想法的开端" class="headerlink" title="Origin | 想法的开端"></a>Origin | 想法的开端</h2><p>最初想要建一个博客站的想法，来源于偶然看到了小刘同志的博客（<a class="link"   href="https://lewamlyn.top/" >传送门<i class="fas fa-external-link-alt"></i></a>）。第一次知道了博客站原来可以这么花里胡哨😜，完全不同于CSDN、博客园那种耿直、硬朗、完全为功能服务的风格。于是，当时便在心中埋下了搭一个自己的博客站的想法。</p>
-<h2 id="Progress-着手去做"><a href="#Progress-着手去做" class="headerlink" title="Progress | 着手去做"></a>Progress | 着手去做</h2><p>搭博客站的计划一开始定在大三的寒假，也就是2021年初，但当时因为语言考试和科研任务迟迟没有开工，没想到一拖就到了大四的寒假。由于学校申请的繁杂事务都差不多处理完了，这个本科阶段最后的寒假显得尤为清闲和珍贵，也终于有时间来倒腾倒腾博客了。  </p>
-<p>跟随小刘同志的经验，我选了<a class="link"   href="https://hexo.io/zh-cn/" >Hexo<i class="fas fa-external-link-alt"></i></a>作为博客网站的框架，结合Github的个人仓库，搭建了自己的第一个网站。主要是参考了以下两篇文章，写得非常详细：</p>
+    <title>写在2023之始的一些想法</title>
+    <url>/2023/01/14/start2023_230114/</url>
+    <content><![CDATA[<h1 id="写在2023之始的一些想法"><a href="#写在2023之始的一些想法" class="headerlink" title="写在2023之始的一些想法"></a>写在2023之始的一些想法</h1><p>2022年的求职结束，最终我只获得了SiriusXM一家公司的sde暑期实习面试，而最终的结果还不得而知，理论上来说，是有可能零offer的（希望不会如此）。不可置否，我的秋招是溃败的，在转码之途的第一步便被浇了一大盆冷水。至于失败的原因，其实大可不必归咎于大环境，个人感觉主要在三点：</p>
 <ul>
-<li><a class="link"   href="https://zhuanlan.zhihu.com/p/26625249" >GitHub+Hexo 搭建个人网站详细教程<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   href="https://blog.csdn.net/sinat_37781304/article/details/82729029" >hexo史上最全搭建教程<i class="fas fa-external-link-alt"></i></a></li>
+<li>信息闭塞，与各种大佬交流不够，以为靠自己便足够</li>
+<li>经验不足，海投还是内推，对内推看的不够重</li>
+<li>菜是原罪，连有些公司的OA都做不完，那还谈什么面试</li>
 </ul>
-<p>主题方面，经过一个选择恐惧症患者的挣扎，我选了<a class="link"   href="https://keep-docs.xpoet.cn/" >Keep<i class="fas fa-external-link-alt"></i></a>作为博客的主题。正如所见，Keep是一款简约且优雅的Hexo主题，它放弃了繁琐的配置选项，仅保留了一些能让你专注于写作的设计。Hexo的<a class="link"   href="https://hexo.io/themes/" >官网<i class="fas fa-external-link-alt"></i></a>也提供了超级多的主题可供选择。  </p>
-<p>然而，仅仅循规蹈矩地采用主题提供的资源还是不能满足我👀。如果想达到更灵活的客制化，就不得不去查看主题的源码。借此机会，我也专门补习了下html、css、js的基础知识，在这方面，W3school提供了非常详细的教程，很适合新手入门：</p>
+<p>春招几乎可以说是已经打响了，但是眼下看来，形势并不会比秋招乐观，对于这最后的机会，我做出了一些求职目标与策略上的调整：</p>
 <ul>
-<li><a class="link"   href="https://www.w3school.com.cn/html/index.asp" >HTML 教程<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   href="https://www.w3school.com.cn/css/index.asp" >CSS 教程<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   href="https://www.w3school.com.cn/js/index.asp" >JavaScript 教程<i class="fas fa-external-link-alt"></i></a></li>
+<li>顾及老本行，硬件岗位一起投（当然用的是另一个版本的resume），主要是embedded software与system software之类</li>
+<li>软件保持刷题手感，但是不会再大量刷新题</li>
+<li>寻求每一个目标岗位的内推，在最万不得已的情况下再海投，同时减少投递数量，对于挂出时间太久的岗位不投</li>
 </ul>
-<h2 id="Story-Begins-未完待续"><a href="#Story-Begins-未完待续" class="headerlink" title="Story Begins | 未完待续"></a>Story Begins | 未完待续</h2><p>这个匆匆搭建好的博客，算是给自己一个特别的新年礼物吧。希望在不远的将来，能把陋室逐渐打造成属于自己的小世界吧。也希望在即将到来的研究生阶段，自己能坚持往小世界里填充自己的东西吧。  </p>
-<p>最后，附上自己很喜欢的一句话❤️：  </p>
-<p><strong>“君子深造之以道，欲其自得之也。自得之，则居之安；居之安，则资之深；资之深，则取之左右逢其原。故君子往其自得之也。”</strong>    </p>
-<p>不祝人如意，只望君能自得。</p>
+<p>当然还有一些具体的措施，对应于上述的策略：</p>
+<ul>
+<li>重新开始学C++/C，光顾着Java，之前的很多知识忘得差不多了，学的也不够深。准备先把《A Tour of C++》快速看完，补足C++20的基础知识，再尝试用C++刷题，理想状况下，最后找一个C++的project做</li>
+<li>及时补全硬件的知识，这个要看各个岗位的具体要求，可以等到有面试后再开始准备（拜托至少给孩子一个面试吧）</li>
+<li>各种途径找内推，linkedin上多social</li>
+</ul>
+<p>最后，还是鼓励一下自己吧。其实一直以来对自己的业务能力还是很有自信的，虽然被秋招打压了不少。希望2023年少一些烦恼，在跳出自己舒适圈的同时，也不要勉强自己吧。</p>
+<p>还有，记得多关心那些真正在乎自己的人。心情好一点😊，自得，自得。</p>
 ]]></content>
       <categories>
         <category>随记</category>
