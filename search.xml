@@ -1,35 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Happy Birthday Mr.Blog | 一篇博客的诞生</title>
-    <url>/2022/02/05/Happy%20Birthday%20Mr.Blog/</url>
-    <content><![CDATA[<h2 id="Origin-想法的开端"><a href="#Origin-想法的开端" class="headerlink" title="Origin | 想法的开端"></a>Origin | 想法的开端</h2><p>最初想要建一个博客站的想法，来源于偶然看到了小刘同志的博客（<a class="link"   href="https://lewamlyn.top/" >传送门<i class="fas fa-external-link-alt"></i></a>）。第一次知道了博客站原来可以这么花里胡哨😜，完全不同于CSDN、博客园那种耿直、硬朗、完全为功能服务的风格。于是，当时便在心中埋下了搭一个自己的博客站的想法。</p>
-<h2 id="Progress-着手去做"><a href="#Progress-着手去做" class="headerlink" title="Progress | 着手去做"></a>Progress | 着手去做</h2><p>搭博客站的计划一开始定在大三的寒假，也就是2021年初，但当时因为语言考试和科研任务迟迟没有开工，没想到一拖就到了大四的寒假。由于学校申请的繁杂事务都差不多处理完了，这个本科阶段最后的寒假显得尤为清闲和珍贵，也终于有时间来倒腾倒腾博客了。  </p>
-<p>跟随小刘同志的经验，我选了<a class="link"   href="https://hexo.io/zh-cn/" >Hexo<i class="fas fa-external-link-alt"></i></a>作为博客网站的框架，结合Github的个人仓库，搭建了自己的第一个网站。主要是参考了以下两篇文章，写得非常详细：</p>
-<ul>
-<li><a class="link"   href="https://zhuanlan.zhihu.com/p/26625249" >GitHub+Hexo 搭建个人网站详细教程<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   href="https://blog.csdn.net/sinat_37781304/article/details/82729029" >hexo史上最全搭建教程<i class="fas fa-external-link-alt"></i></a></li>
-</ul>
-<p>主题方面，经过一个选择恐惧症患者的挣扎，我选了<a class="link"   href="https://keep-docs.xpoet.cn/" >Keep<i class="fas fa-external-link-alt"></i></a>作为博客的主题。正如所见，Keep是一款简约且优雅的Hexo主题，它放弃了繁琐的配置选项，仅保留了一些能让你专注于写作的设计。Hexo的<a class="link"   href="https://hexo.io/themes/" >官网<i class="fas fa-external-link-alt"></i></a>也提供了超级多的主题可供选择。  </p>
-<p>然而，仅仅循规蹈矩地采用主题提供的资源还是不能满足我👀。如果想达到更灵活的客制化，就不得不去查看主题的源码。借此机会，我也专门补习了下html、css、js的基础知识，在这方面，W3school提供了非常详细的教程，很适合新手入门：</p>
-<ul>
-<li><a class="link"   href="https://www.w3school.com.cn/html/index.asp" >HTML 教程<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   href="https://www.w3school.com.cn/css/index.asp" >CSS 教程<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   href="https://www.w3school.com.cn/js/index.asp" >JavaScript 教程<i class="fas fa-external-link-alt"></i></a></li>
-</ul>
-<h2 id="Story-Begins-未完待续"><a href="#Story-Begins-未完待续" class="headerlink" title="Story Begins | 未完待续"></a>Story Begins | 未完待续</h2><p>这个匆匆搭建好的博客，算是给自己一个特别的新年礼物吧。希望在不远的将来，能把陋室逐渐打造成属于自己的小世界吧。也希望在即将到来的研究生阶段，自己能坚持往小世界里填充自己的东西吧。  </p>
-<p>最后，附上自己很喜欢的一句话❤️：  </p>
-<p><strong>“君子深造之以道，欲其自得之也。自得之，则居之安；居之安，则资之深；资之深，则取之左右逢其原。故君子往其自得之也。”</strong>    </p>
-<p>不祝人如意，只望君能自得。</p>
-]]></content>
-      <categories>
-        <category>随记</category>
-      </categories>
-      <tags>
-        <tag>随记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C++中的拷贝构造函数与深/浅拷贝</title>
     <url>/2022/02/27/copyFunc_220227/</url>
     <content><![CDATA[<p>在一个C++空类中，编译器会加入以下默认的成员函数：</p>
@@ -63,6 +34,60 @@
 ]]></content>
       <tags>
         <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2月：记失去方向盘的日子</title>
+    <url>/2023/02/14/feb_230214/</url>
+    <content><![CDATA[<p>前几天去理发，理发的老奶奶说最近生意很好，因为大家都要出去dating了，我说，为啥大家都要出去dating了？</p>
+<p>老奶奶像看怪人一样看着我，我恍然大悟，笑死。</p>
+<h2 id="方向盘啥时候丢的"><a href="#方向盘啥时候丢的" class="headerlink" title="方向盘啥时候丢的"></a>方向盘啥时候丢的</h2><p>二月的开启超不顺，首先是被Apple的面试碾压了，击碎了孩子美好的大厂幻想，然后出乎意料地挂掉了路考，作为驾龄四年的老司机，着实有点丢人。和朋友出去hiking又给弄感冒了，浑浑噩噩地在家躺了一个星期。</p>
+<p>说是水逆，但心情也不至于很差，可能主要是因为压力小了很多吧。学校的功课倒是挺简单，课好久没去上，感觉去与不去没有任何区别，无聊且浪费时间。有时候会想，自己是不是开始摆烂了？但是从另一个方向来说，做无意义的事来浪费时间不才是真正摆烂？</p>
+<p>已经擅自给自己的春招画上了句号，既然硬件走不通了（不是我的错，是Apple逼我这么想的，吐舌），那还是老实转码吧，所以就接了SiriusXM的offer，虽然自己各种不满意，但总比没有好，甚至想想要成为准SDE了还有点激动。买了几本书，每天把大部分时间花在学一些今后必要的技术栈上，在开到中火的兴趣和动力中，尚且得到了一种虚假的充实感。</p>
+<h2 id="还是做点规划的好"><a href="#还是做点规划的好" class="headerlink" title="还是做点规划的好"></a>还是做点规划的好</h2><p>既然确定了自己的职业走向（感谢Apple），规划其实容易得多。现在手上正在看的两本书，一本《Well-Grounded Java Developer》（说实话，是真XX难看），优先看完，主要是补全下Java的底层知识，JVM，Concurrency，GC的原理等等，应该在2月就能结束；另一本是《Spring in Action》，赞誉很高的一本书，也趁机补下spring的基础知识，计划3月能看完。</p>
+<p>这两本书相当于给自己的缓冲吧，进入4月，就又要开始功利了。我想自己当然不会满足于拿SiriusXM的return offer，所以这个时间应该是进入秋招准备的重要节点。刷题仍是大头，这次肯定不能再拘泥于laicode了，leetcode必须要刷起来了。刷题的详细规划在3月末应该会重新做出，此外，其他的面试方面（Java基础知识，计算机基础，项目细节，前后端，BQ等）的规划与训练也一并计入；以及是否要重听项目班更新简历项目，都是要考虑的。</p>
+<p>同样，最迟在四月，找manager问清楚internship的具体技术栈，提前学习，实习也是要好好加油的！</p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>说真的，我感觉在过去的一段时间里，我陷入了一种误区：我老是觉得自己表里不一，觉得我呈现在外部的不是真正的自己；所以对于自己在意的人，我总是想展示所谓的“真实的自己”，好让自己变得“真诚”。但后来我发现，我似乎已经成为那个展现在外面的人了，而那个所谓的脆弱的，保真度高的，内在的我，只是一具从来没有戴上过的面具……</p>
+<p>吊诡的是，这幅面具，居然来自于别人给自己贴上的标签……</p>
+<p>所以，为什么要接受他们给你贴的标签呢，为什么觉得自己性格不好，又为什么觉得自己要“改变”？</p>
+<p>变他个大头鬼。</p>
+<p>接受自己，没必要为过去纠结，也没必要让其他人看到你的努力，更没必要把自己的脆弱当成真诚展现给他人，nobody cares。</p>
+<p>老子自己觉得自己很牛逼就够了。</p>
+]]></content>
+      <categories>
+        <category>随记</category>
+      </categories>
+      <tags>
+        <tag>随记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Happy Birthday Mr.Blog | 一篇博客的诞生</title>
+    <url>/2022/02/05/Happy%20Birthday%20Mr.Blog/</url>
+    <content><![CDATA[<h2 id="Origin-想法的开端"><a href="#Origin-想法的开端" class="headerlink" title="Origin | 想法的开端"></a>Origin | 想法的开端</h2><p>最初想要建一个博客站的想法，来源于偶然看到了小刘同志的博客（<a class="link"   href="https://lewamlyn.top/" >传送门<i class="fas fa-external-link-alt"></i></a>）。第一次知道了博客站原来可以这么花里胡哨😜，完全不同于CSDN、博客园那种耿直、硬朗、完全为功能服务的风格。于是，当时便在心中埋下了搭一个自己的博客站的想法。</p>
+<h2 id="Progress-着手去做"><a href="#Progress-着手去做" class="headerlink" title="Progress | 着手去做"></a>Progress | 着手去做</h2><p>搭博客站的计划一开始定在大三的寒假，也就是2021年初，但当时因为语言考试和科研任务迟迟没有开工，没想到一拖就到了大四的寒假。由于学校申请的繁杂事务都差不多处理完了，这个本科阶段最后的寒假显得尤为清闲和珍贵，也终于有时间来倒腾倒腾博客了。  </p>
+<p>跟随小刘同志的经验，我选了<a class="link"   href="https://hexo.io/zh-cn/" >Hexo<i class="fas fa-external-link-alt"></i></a>作为博客网站的框架，结合Github的个人仓库，搭建了自己的第一个网站。主要是参考了以下两篇文章，写得非常详细：</p>
+<ul>
+<li><a class="link"   href="https://zhuanlan.zhihu.com/p/26625249" >GitHub+Hexo 搭建个人网站详细教程<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   href="https://blog.csdn.net/sinat_37781304/article/details/82729029" >hexo史上最全搭建教程<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+<p>主题方面，经过一个选择恐惧症患者的挣扎，我选了<a class="link"   href="https://keep-docs.xpoet.cn/" >Keep<i class="fas fa-external-link-alt"></i></a>作为博客的主题。正如所见，Keep是一款简约且优雅的Hexo主题，它放弃了繁琐的配置选项，仅保留了一些能让你专注于写作的设计。Hexo的<a class="link"   href="https://hexo.io/themes/" >官网<i class="fas fa-external-link-alt"></i></a>也提供了超级多的主题可供选择。  </p>
+<p>然而，仅仅循规蹈矩地采用主题提供的资源还是不能满足我👀。如果想达到更灵活的客制化，就不得不去查看主题的源码。借此机会，我也专门补习了下html、css、js的基础知识，在这方面，W3school提供了非常详细的教程，很适合新手入门：</p>
+<ul>
+<li><a class="link"   href="https://www.w3school.com.cn/html/index.asp" >HTML 教程<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   href="https://www.w3school.com.cn/css/index.asp" >CSS 教程<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   href="https://www.w3school.com.cn/js/index.asp" >JavaScript 教程<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+<h2 id="Story-Begins-未完待续"><a href="#Story-Begins-未完待续" class="headerlink" title="Story Begins | 未完待续"></a>Story Begins | 未完待续</h2><p>这个匆匆搭建好的博客，算是给自己一个特别的新年礼物吧。希望在不远的将来，能把陋室逐渐打造成属于自己的小世界吧。也希望在即将到来的研究生阶段，自己能坚持往小世界里填充自己的东西吧。  </p>
+<p>最后，附上自己很喜欢的一句话❤️：  </p>
+<p><strong>“君子深造之以道，欲其自得之也。自得之，则居之安；居之安，则资之深；资之深，则取之左右逢其原。故君子往其自得之也。”</strong>    </p>
+<p>不祝人如意，只望君能自得。</p>
+]]></content>
+      <categories>
+        <category>随记</category>
+      </categories>
+      <tags>
+        <tag>随记</tag>
       </tags>
   </entry>
   <entry>
